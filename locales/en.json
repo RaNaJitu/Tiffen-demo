@@ -1,0 +1,115 @@
+{
+	"managerAnalytis": {
+		"408": "you dont have privilege to access analytics dashboard"
+	},
+	"admin": {
+		"401": "You are trying to access this route with invalid authentication token",
+		"403": "Unauthorized Access.",
+		"404": "Admin user not found with that email.",
+		"405": "Seems you entered wrong password for this email.",
+		"408c": "current password is not matched, Try again.."
+	},
+	"common": {
+		"fields": {
+			"authorization": "authentication token of user.",
+			"language": "specify language (en-english, sn-spanish, etc.).",
+			"platform": "specify plateform (1-IOS, 2-Android, 3-web).",
+			"currencysymbol": "specify currencysymbol (₹, $, etc.).",
+			"currencycode": "specify currencyCode (INR, USD, etc.)."
+		},
+		"response": {
+			"200": "Success",
+			"204": "common.response.204",
+			"400": "%s field missing/invalid",
+			"401": "Unauthorized Access, Please Login.",
+			"404": "Data Not Found",
+			"406": "Token Expired.",
+			"409": "common.response.409",
+			"494": "common.response.494",
+			"500": "Internal server error"
+		},
+		"responseDescription": {
+			"200": "This will get while request successfully executed.",
+			"204": "",
+			"400": "Bad request while some data is missing or invalid.",
+			"401": "This will occur while refresh token is expired or blacklisted.",
+			"404": "Data Not Found",
+			"406": "This will occur while auth token is expired.",
+			"409": "This will occur while requested data is already exist.",
+			"410": "This will occur when the requested resource has been permanently removed.",
+			"412": "This will occur when duplicate email address is found.",
+			"413": "This will occur when duplicate phone number is found.",
+			"494": "common.responseDescription.494",
+			"500": "This error occur while internal server error."
+		},
+		"responseExample": {
+			"200": "Success.",
+			"400": "%s field missing/invalid",
+			"498": "Token Expire.",
+			"500": "Internal server error."
+		},
+		"responsedescription": {
+			"200": "Success.",
+			"400": "Bad request while some data is missing or invalid.",
+			"498": "Token Expire.",
+			"500": "The 500 Internal Server Error is a server - side error, meaning the problem is not with your PC or Internet connection but instead is a problem with the web site's server."
+		}
+	},
+	"genericErrMsg": {
+		"200": "Success.",
+		"400": "Mandatory field's are missing.",
+		"401": "Your profile is not verified, please contact our support for further queries.",
+		"402": "Mandatory field's are missing.",
+		"404": "Something went wrong.please logout & try again.",
+		"440": "Token Expire.",
+		"498": "Invalid Token.",
+		"500": "INTERNAL SERVER ERROR.",
+		"501": "Implement  error.",
+		"500d": "The 500 Internal Server Error is a server - side error, meaning the problem is not with your PC or Internet connection but instead is a problem with the web site's server.",
+		"401d": "The 401 Unauthorized Error is an HTTP response status code indicating that the request sent by the client could not be authenticated. ... Conversely, a 401 Unauthorized Error indicates that the requested resource is restricted and requires authentication, but the client failed to provide any such authentication",
+		"400d": "400 Bad Request response status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error or something missing in payload"
+	},
+	"opt": {
+		"200": "OTP Send Successfully..",
+		"400": "Bad Request.",
+		"402": "Mobile not verified",
+		"403": "This user's profile has not been approved yet, please contact our customer care for further queries",
+		"404": "This number / email  is not registered with us, please register as a new user or try with a different number / email or password",
+		"405": "Your account is deleted ",
+		"406": "Email id / Phone number is incorrect.",
+		"407": "Your profile has been banned by our operations team. Please reach out to our support team for more information.",
+		"408": "The password entered does not match the email address entered above , try the forgot password to reset your password or sign up as a new user ",
+		"409": "It seems you have entered a new password same as old passwprd, please try again with a new password or use the forgot password option to recover your password",
+		"410": "Email is not allowed to empty",
+		"411": "Phone Number is not allowed to empty",
+		"415": "This user profile is suspended by the account admin , please contact our customer care for further queries",
+		"416": "Your profile has been deleted by our operations team. please reach out to our support team for more information.",
+		"417": "This user's profile has been rejected , please contact our customer care for further queries",
+		"418": "This user's profile has not been approved yet, please contact our customer care for further queries."
+	},
+	"category": {
+		"200": "category.200",
+		"204": "category.204",
+		"404": "category.404",
+		"500": "category.500",
+		"description": "get category Details.",
+		"notes": "This API is used to get all category.",
+		"fields": {
+			"categoryId": "Category id ."
+		},
+		"response": {
+			"200": "Success",
+			"204": "",
+			"403": "Unauthorized Access.",
+			"404": "Category Data not found."
+		},
+		"responseDescription": {
+			"200": "This will get while request successfully executed.",
+			"403": "This error occur when user don't have permission",
+			"404": "This error occur when Category is not found in database."
+		}, 
+		"responseFields": {
+			"id": "id of category."
+		}
+	}
+}

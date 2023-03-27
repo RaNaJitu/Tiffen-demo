@@ -1,0 +1,12 @@
+node_modules
+/.vscode
+/.nyc_*
+/coverage
+.env*
+!.env.example*
+/logs
+debug.log
+certificate.crt
+key.pem
+images
+newrelic_agent.log

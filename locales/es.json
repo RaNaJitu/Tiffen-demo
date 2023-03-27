@@ -1,0 +1,4186 @@
+{
+	"managerAnalytis": {
+		"408": "no tiene privilegios para acceder al panel de análisis"
+	},
+	"common": {
+		"fields": {
+			"authorization": "ficha de autenticación del usuario ",
+			"language": "Especificar idioma  (en-english, sn-spanish, etc.).",
+			"platform": "Especificar plataforma (1-IOS, 2-Android, 3-web).",
+			"currencysymbol": "Especificar simbolo de moneda (₹, $, etc.).",
+			"currencycode": "Especificar codigo de moneda (INR, USD, etc.)."
+		},
+		"response": {
+			"200": "Correcto",
+			"400": "Falta el campo %s / no es válido",
+			"401": "Acceso no autorizado, inicie sesión",
+			"404": "Datos no encontrados",
+			"406": "Código caducado",
+			"409": "common.response.409",
+			"500": "Error interno de servidor"
+		},
+		"responseDescription": {
+			"200": "Esto se obtendrá mientras la solicitud se ejecute correctamente.",
+			"400": "Solicitud incorrecta mientras algunos datos falten o no sean válidos",
+			"401": "Esto ocurrirá mientras el token de actualización caduque o esté en la lista negra.",
+			"404": "Datos no encontrados",
+			"406": "Esto ocurrirá mientras el token de autenticación esté caducado.",
+			"409": "Esto ocurrirá mientras los datos solicitados ya existan.",
+			"410": "Esto ocurrirá cuando el recurso solicitado se haya eliminado de forma permanente.",
+			"412": "common.responseDescription.412",
+			"413": "common.responseDescription.413",
+			"500": "Este error se da mientras se produce un error interno del servidor"
+		},
+		"responseexample": {
+			"200": "Éxitoso",
+			"400": "Falta el campo %  / no es válido",
+			"498": "Clave expirada.",
+			"500": "Error interno de servidor 500."
+		},
+		"responsedescription": {
+			"200": "Éxito",
+			"400": "Solicitud incorrecta mientras algunos datos faltan o no son válidos",
+			"498": "Token expira.",
+			"500": "El 500 Internal Server Error es un error del lado del servidor, lo que significa que el problema no está en su PC o conexión a Internet, sino que es un problema con el servidor del sitio web"
+		}
+	},
+	"getStoreCategory": {
+		"description": "obtener la categoría de la tienda por ciudad.",
+		"notes": "Esta API se utiliza para obtener todas las categorías de tiendas por ciudad",
+		"fields": {
+			"cityId": "Identificación de la ciudad"
+		},
+		"response": {
+			"200": "Correcto",
+			"404": "Categoría de tienda no encontrada"
+		},
+		"responseDescription": {
+			"200": "Esto se obtendrá mientras la solicitud se ejecute correctamente.",
+			"404": "Este error se produce cuando la categoría de tienda no se encuentra en la base de datos"
+		},
+		"responseFields": {
+			"id": "id de la categoría",
+			"name": "Nombre de la categoría.",
+			"colorCode": "código de color establecido para la categoría.",
+			"storeType": "ID de tipo de tienda de la categoría.",
+			"storeTypeText": "tipo de tienda de la categoría.",
+			"count": "los pedidos activos cuentan en la categoría"
+		}
+	},
+	"getPrescriptions": {
+		"description": "superar la prescripción aceptada",
+		"notes": "Esta API se utiliza para obtener todas las prescripciones aceptadas anteriores",
+		"fields": {
+			"storeType": "tipo de tienda",
+			"limit": "tamaño de página",
+			"skip": "grabar para saltar"
+		},
+		"response": {
+			"200": "Correcto",
+			"404": "Receta no encontrada"
+		},
+		"responseDescription": {
+			"200": "Esto se obtendrá mientras la solicitud se ejecute correctamente.",
+			"404": "Este error se produce cuando la prescripción no se encuentra en la base de datos"
+		},
+		"responseFields": {
+			"count": "recuento de todas las recetas",
+			"_id": "id de prescripción.",
+			"url": "URL de la receta que se cargó y usó en el pasado",
+			"usedOn": "el tiempo de prescripción se utilizó en el pasado.",
+			"masterOrderId": "id del pedido en la prescripción se ha utilizado"
+		}
+	},
+	"dmsPackagesGet": {
+		"description": "obtener paquetes por ID de pedido principal",
+		"notes": "Esta API se utiliza para obtener todos los paquetes del ID de pedido principal.",
+		"fields": {
+			"parentOrderId": "Id. del pedido principal para obtener detalles, por ejemplo: 44301580712142350.",
+			"packageIds": "ID de paquete de varios pedidos en cadena con ',' delimitador, por ejemplo: 44301580712142350,44301580712142350."
+		},
+		"response": {
+			"200": "Correcto",
+			"404": "Paquete no encontrado"
+		},
+		"responseDescription": {
+			"200": "Esto se obtendrá mientras la solicitud se ejecute correctamente.",
+			"404": "Este error se produce cuando el paquete no se encuentra en la base de datos"
+		},
+		"responseFields": {}
+	},
+	"dmsPackageDetails": {
+		"description": "obtener detalles del paquete.",
+		"notes": "Esta API se utiliza para obtener detalles del paquete a partir del ID del paquete.",
+		"fields": {
+			"packageId": "ID del paquete para obtener detalles, por ejemplo: 44301580712142350.",
+			"productOrderId": "ID de pedido de producto para obtener detalles, por ejemplo: 44301580712142350."
+		},
+		"response": {
+			"200": "Correcto",
+			"404": "Paquete no encontrado"
+		},
+		"responseDescription": {
+			"200": "Esto se obtendrá mientras la solicitud se ejecute correctamente.",
+			"404": "Este error se produce cuando el paquete no se encuentra en la base de datos"
+		},
+		"responseFields": {}
+	},
+	"dmsPackageDeliveryStatus": {
+		"description": "obtener el estado de entrega de los detalles del paquete.",
+		"notes": "Esta API se utiliza para obtener detalles del estado de entrega del ID del paquete",
+		"fields": {
+			"packageId": "ID del paquete para obtener detalles, por ejemplo: 44301580712142350.",
+			"productOrderId": "ID de pedido de producto para obtener detalles, por ejemplo: 44301580712142350."
+		},
+		"response": {
+			"200": "Correcto",
+			"404": "Paquete no encontrado"
+		},
+		"responseDescription": {
+			"200": "Esto se obtendrá mientras la solicitud se ejecute correctamente.",
+			"404": "Este error se produce cuando el paquete no se encuentra en la base de datos"
+		},
+		"responseFields": {
+			"status": "Estado en número",
+			"statusText": "Mensaje de estado en cadena.",
+			"time": "Marca de tiempo de la actualización de estado.",
+			"formatedDate": "Fecha formateada de actualización de estado.",
+			"otherDetails": "otros detalles para el estado como en el ID de seguimiento de entrega"
+		}
+	},
+	"ipinfo": {
+		"404": "dirección IP incorrecta, compruebe su dirección IP",
+		"429": "su límite de tasa ha expirado, revise su cuenta de ipinfo para solucionar problemas"
+	},
+	"dispatchPost": {
+		"403": "Estado no válido",
+		"404": "Datos no encontrados",
+		"405": "No se puede completar el pedido, el pedido corresponde al flujo de ruta"
+	},
+	"orderPatch": {
+		"403": "Estado no válido, verifique los detalles del pedido",
+		"404": "Datos no encontrados",
+		"409": "Estado ya actualizado"
+	},
+	"dc": {
+		"404": "no se encontró ningún centro de distribución para este país o ciudad"
+	},
+	"adminPostBanCustomer": {
+		"402": "este cliente tiene una reserva en curso, por lo que no puede banearse",
+		"404": "perfil de cliente no encontrado"
+	},
+	"admin": {
+		"401": "Está intentando acceder a esta ruta con un token de autenticación no válido",
+		"404": "usuario no encontrado",
+		"405": "parece que ingresaste una contraseña incorrecta",
+		"408c": "current password is not matched, Try again.."
+	},
+	"providerPlatNumberValidate": {
+		"412": "Este número de placa ya está registrado con nosotros"
+	},
+	"googleSignin": {
+		"404": "Esta cuenta de Google no está vinculada con ningún usuario existente, regístrese como nuevo usuario para seguir usando la aplicación"
+	},
+	"appleSignin": {
+		"404": "Esta cuenta de Apple no está vinculada con ningún usuario existente, regístrese como nuevo usuario para seguir usando la aplicación"
+	},
+	"facebookSignin": {
+		"404": "Esta cuenta de Facebook no está vinculada con ningún usuario existente, regístrese como nuevo usuario para seguir usando la aplicación"
+	},
+	"manager": {
+		"200": "Ok",
+		"402": "campo de código de país y móvil obligatorio",
+		"404": "administrador no encontrado",
+		"408": "parece que ha introducido una contraseña incorrecta",
+		"412": "el administrador ya existe con el mismo ID de correo electrónico",
+		"413": "administrador ya existe con el mismo móvil",
+		"408c": "la contraseña actual no coincide, inténtalo de nuevo ..."
+	},
+	"genericErrMsg": {
+		"200": "Éxito",
+		"400": "Faltan campos obligatorios.",
+		"401": "Su perfil no está verificado, comuníquese con nuestro soporte para más consultas",
+		"402": "Faltan campos obligatorios.",
+		"404": "Algo salió mal. Por favor, cierre la sesión y vuelva a intentarlo.",
+		"440": "Token caduca",
+		"498": "Token no válido",
+		"500": "Error interno de servidor.",
+		"501": "Error de implementación",
+		"500d": "El 500 Internal Server Error es un error del lado del servidor, lo que significa que el problema no está en su PC o conexión a Internet, sino que es un problema con el servidor del sitio web.",
+		"401d": "El error 401 no autorizado es un código de estado de respuesta HTTP que indica que la solicitud enviada por el cliente no se pudo autenticar. ... Por el contrario, un error 401 no autorizado indica que el recurso solicitado está restringido y requiere autenticación, pero el el cliente no pudo proporcionar dicha autenticación ",
+		"400d": "El código de estado de respuesta 400 Bad Request indica que el servidor no puede o no procesará la solicitud debido a algo que se percibe como un error del cliente o algo que falta en la carga útil"
+	},
+	"SMS": {
+		"200": "Su código de verificación %s es %s"
+	},
+	"driverStatus": {
+		"statusText": "Nuestro equipo de operaciones ha cerrado la sesión. Vuelva a iniciar sesión para seguir accediendo a su cuenta.",
+		"statusTitle": "Desconectado",
+		"offlineText": "Nuestro equipo de operaciones ha cambiado su estado de disponibilidad a offline",
+		"offlineTitle": "Sin conexión por equipo de operaciones",
+		"sessionmsg": "Su sesión ha expirado, inicie sesión nuevamente para continuar accediendo a su cuenta.",
+		"sessiontitle": "Sesión caducada"
+	},
+	"walletSoftLimit": {
+		"33": "Estás fuera del límite flexible"
+	},
+	"estimateDelivery": {
+		"402": "Discrepancia de zona",
+		"403": "La ciudad no coincide, no se puede enviar a otra ciudad"
+	},
+	"stripeCardPost": {
+		"200": "Tarjeta agregada correctamente"
+	},
+	"stripeCardPatch": {
+		"200": "Tarjeta agregada correctamente a la fuente predeterminada.",
+		"400": "Tarjeta o usuario no encontrado"
+	},
+	"stripeCardDelete": {
+		"200": "Tarjeta eliminada correctamente.",
+		"400": "Tarjeta o usuario no encontrado"
+	},
+	"stripeConnectAccountGet": {
+		"400": "Sin cuenta de stripe, cree una nueva cuenta de stripe"
+	},
+	"stripeConnectAccountPost": {
+		"400": "Sin cuenta de stripe, cree una nueva cuenta de stripe"
+	},
+	"stripeExternalAccountPost": {
+		"400": "Sin cuenta de stripe, cree una nueva cuenta de stripe"
+	},
+	"stripeExternalAccountDelete": {
+		"200": "Cuenta externa eliminada correctamente.",
+		"400": "Cuenta externa o cuenta de Connecy no encontrada"
+	},
+	"stripeExternalAccountPatch": {
+		"200": "Cuenta externa agregada correctamente a la fuente predeterminada.",
+		"400": "Cuenta externa o cuenta de Connecy no encontrada"
+	},
+	"stripePlanPost": {
+		"200": "Plan agregado correctamente"
+	},
+	"stripePlanPatch": {
+		"200": "Plan actualizado correctamente.",
+		"400": "Plan no encontrado"
+	},
+	"stripePlanDelete": {
+		"200": "Plan eliminado correctamente.",
+		"400": "Plan no encontrado"
+	},
+	"stripeSubscribePost": {
+		"200": "Suscripción agregada correctamente.",
+		"208": "Ya está suscrito al mismo plan",
+		"400": "Cliente no encontrado",
+		"401": "Tarjetas no encontradas",
+		"402": "Plan no encontrado"
+	},
+	"stripeSubscribeGet": {
+		"200": "Éxito",
+		"400": "Cliente no encontrado",
+		"401": "Suscripción no encontrada"
+	},
+	"stripeSubscribePatch": {
+		"200": "Suscripción actualizada correctamente.",
+		"400": "Cliente no encontrado",
+		"401": "Tarjetas no encontradas",
+		"402": "Plan no encontrado"
+	},
+	"stripeSubscribeDelete": {
+		"200": "Suscripción eliminada correctamente.",
+		"400": "Suscripción no encontrada",
+		"401": "Cliente no encontrado"
+	},
+	"stripeTransaction": {
+		"customeNotFound": "Cliente no encontrado",
+		"authoriseSuccess": "Cargo creado correctamente.",
+		"refundChargeSuccess": "cargo cancelado correctamente.",
+		"captureChargeSuccess": "carga capturada correctamente.",
+		"chargeSuccess": "Carga satisfactoria",
+		"accountNotFound": "Cuenta no encontrada",
+		"transferSuccess": "Transferencia exitosa"
+	},
+	"stripeErr": {
+		"rateLimit": "Se han realizado demasiadas solicitudes a la API",
+		"invalidParams": "Parámetros no válidos suministrados.",
+		"apiErr": "Se produjo un error internamente con la API de Stripe.",
+		"connectionErr": "Se produjo algún tipo de error durante la comunicación HTTPS.",
+		"authErr": "Probablemente usaste una clave API incorrecta.",
+		"defaultErr": "Error inesperado"
+	},
+	"postSignUp": {
+		"200": "Éxito",
+		"400": "El usuario no existe",
+		"411": "Mobile Number is requried.",
+		"412": "Esta dirección de correo electrónico ya está registrada con nosotros, intente con otra dirección de correo electrónico.",
+		"413": "Este número de teléfono ya está registrado con nosotros, intente con otro número",
+		"414": "se requiere contraseña"
+	},
+	"getProfile": {
+		"200": "Éxito",
+		"204": "Usuario no encontrado",
+		"404": "Datos no encontrados",
+		"409": "El perfil de usuario no es el perfil de la institución"
+	},
+	"updateProfile": {
+		"200": "Perfil actualizado correctamente",
+		"204": "Usuario no encontrado",
+		"404": "Datos no encontrados"
+	},
+	"getData": {
+		"200": "Éxito",
+		"404": "Datos no encontrados"
+	},
+	"appVersions": {
+		"200": "Éxito",
+		"400": "Actualiza tu aplicación a la última versión disponible",
+		"404": "Datos no encontrados"
+	},
+	"guestRegisterUser": {
+		"200": "Éxito",
+		"400": "Petición Incorrecta."
+	},
+	"getCityErrMsg": {
+		"200": "Éxito",
+		"404": "No se ha encontrado ninguna ciudad"
+	},
+	"emails": {
+		"200": "Correo electrónico enviado correctamente",
+		"400": "No se encontró ningún usuario"
+	},
+	"postPhoneValidation": {
+		"200": "Éxito",
+		"400": "Petición Incorrecta",
+		"402": "Campo de código de país y móvil obligatorio",
+		"404": "No encontrado",
+		"406": "El número de móvil no es válido",
+		"408": "Campo de correo electrónico obligatorio",
+		"412": "Este número de teléfono está vinculado con una cuenta de usuario, intente con otro número de teléfono.",
+		"413": "Esta dirección de correo electrónico está vinculada con una cuenta de usuario, intente con otra dirección de correo electrónico.",
+		"412a": "Este número de teléfono está vinculado con una cuenta de usuario, intente con otro número de teléfono",
+		"413a": "Esta dirección de correo electrónico está vinculada con una cuenta de usuario, intente con otra dirección de correo electrónico"
+	},
+	"postUserNameValidation": {
+		"200": "Éxito",
+		"400": " Petición Incorrecta",
+		"402": "Se requiere un campo de nombre de usuario",
+		"404": "No encontrado",
+		"406": "El nombre de usuario no es válido",
+		"412": "Este nombre de usuario ya está vinculado con la cuenta de otro usuario, inténtelo de nuevo con un nombre de usuario diferente"
+	},
+	"managerPhoneValidation": {
+		"200": "Éxito",
+		"400": " Petición Incorrecta",
+		"402": "campo de código de país y móvil obligatorio",
+		"404": "No encontrado",
+		"406": "El número de móvil no es válido",
+		"408": "correo electrónico requerido",
+		"412": "Este número de teléfono ya está vinculado con la cuenta de otro usuario. Vuelve a intentarlo con otro número de teléfono",
+		"413": "Esta dirección de correo electrónico ya está vinculada con la cuenta de otro usuario. Vuelva a intentarlo con una dirección de correo electrónico diferente",
+		"412a": "El número de teléfono ya está vinculado con otro perfil, inténtelo de nuevo con un número de teléfono diferente o pruebe la opción de contraseña olvidada",
+		"413a": "El correo electrónico ya está vinculado con otro perfil, inténtelo de nuevo con un correo electrónico diferente o pruebe la opción de contraseña olvidada"
+	},
+	"postEmailValidation": {
+		"200": "Éxito",
+		"412": "Esta dirección de correo electrónico ya está registrada con nosotros. Intente con otra"
+	},
+	"getServiceCategory": {
+		"200": "Obtener los detalles de la categoría",
+		"404": "No se encontró ninguna categoría"
+	},
+	"postVerifyPhoneNumber": {
+		"200": "Gracias por registrarte. Uno de nuestros representantes se comunicará contigo en las próximas 24 horas para configurar tu perfil y obtener todos los documentos necesarios",
+		"410": "Código de verificación no válido, inténtelo de nuevo"
+	},
+	"postSignIn": {
+		"200": "Inicio de sesión correcto",
+		"399": "Este número de teléfono no está registrado con nosotros, regístrese como nuevo conductor o intente nuevamente con un número de teléfono diferente.",
+		"400": "Este correo electrónico no está registrado con nosotros, regístrese como nuevo controlador o inténtelo de nuevo con una dirección de correo electrónico diferente.",
+		"403": "Nuestro equipo de operaciones ha rechazado su perfil. Comuníquese con nuestro equipo de soporte para obtener más información",
+		"404": "Datos del controlador no encontrados",
+		"405": "Su perfil está pendiente de revisión. Puede comunicarse con nuestro equipo de soporte para cualquier otra consulta",
+		"406": "Nuestro equipo de operaciones ha prohibido su perfil. Comuníquese con nuestro equipo de soporte para obtener más información",
+		"408": "Datos del vehículo no encontrados",
+		"409": "Contraseña incorrecta, inténtelo de nuevo.",
+		"410": "Se requiere correo electrónico",
+		"411": "número de móvil obligatorio",
+		"412": "código de país obligatorio"
+	},
+	"newAccount": {
+		"406": "Gracias por registrarse. Uno de nuestros representantes se comunicará con usted en las próximas 24 horas para configurar su perfil y obtener todos los documentos necesarios"
+	},
+	"bannedAccount": {
+		"406": "Nuestro equipo de operaciones ha prohibido su perfil. Comuníquese con nuestro equipo de soporte para obtener más información"
+	},
+	"deactivatedAccount": {
+		"406": "Su cuenta ha sido desactivada. Escríbanos a info@flaigo.com para obtener más detalles"
+	},
+	"rejectedAccount": {
+		"406": "Nuestro equipo de operaciones ha rechazado su perfil. Comuníquese con nuestro equipo de soporte para obtener más información"
+	},
+	"patchProfile": {
+		"200": "Actualizado correctamente.",
+		"400": "Verifique el campo de entrada",
+		"412": "No puede eliminar o prohibir el controlador si el controlador está actualmente en una reserva"
+	},
+	"patchStatus": {
+		"200": "Actualizado correctamente"
+	},
+	"patchLocation": {
+		"200": "Actualizado correctamente ..."
+	},
+	"patchPassword": {
+		"200": "Actualizado correctamente ...",
+		"401": "Contraseña incorrecta"
+	},
+	"postResendOtp": {
+		"200": "Se ha enviado el código de verificación a su número de móvil registrado",
+		"404": "Datos no encontrados",
+		"429": "Has agotado la cuota de intentos de verificación, inténtalo de nuevo después de 24 horas"
+	},
+	"slaveRegisterUser": {
+		"200": "Correcto",
+		"400": "Petición Incorrecta"
+	},
+	"slaveVerifyPhoneNumber": {
+		"200": "Número de teléfono verificado",
+		"400": "El código de verificación es incorrecto",
+		"401": "Este número de teléfono móvil ya está verificado. Intente con otro",
+		"404": "Datos no encontrados",
+		"410": "El código de verificación ha caducado, genere uno nuevo haciendo clic en el botón de reenvío.",
+		"429": "Has agotado la cuota de intentos de verificación, inténtalo de nuevo después de 24 horas"
+	},
+	"slaveResendOtp": {
+		"200": "Se ha enviado el código de verificación a su número de móvil registrado",
+		"404": "Datos no encontrados",
+		"429": "Has agotado la cuota de intentos de verificación, inténtalo de nuevo después de 24 horas"
+	},
+	"slaveEmailValidation": {
+		"200": "Éxito",
+		"412": "Esta dirección de correo electrónico ya está registrada con nosotros. Intente con otra.",
+		"413": "Esta dirección de correo electrónico ya está registrada con nosotros, intente con otra dirección de correo electrónico"
+	},
+	"slavePhoneValidation": {
+		"200": "Éxito",
+		"400": "Petición Incorrecta",
+		"406": "El número de teléfono no es válido",
+		"412": "Este número de teléfono ya está registrado con nosotros, intente con otro número"
+	},
+	"slavePassword": {
+		"200": "Actualizado correctamente ...",
+		"401": "¡Contraseña incorrecta! Vuelva a intentarlo o haga clic en ¿Olvidó la contraseña para restablecerla?"
+	},
+	"customerUpdatePassword": {
+		"200": "Actualizado correctamente ...",
+		"401": "El código no está verificado.",
+		"402": "No tiene autorización para cambiar la contraseña",
+		"440": "Código de verificación no válido. Vuelve a intentarlo"
+	},
+	"driverUpdatePassword": {
+		"200": "Actualizado correctamente ...",
+		"401": "El código no está verificado.",
+		"402": "No tiene autorización para cambiar la contraseña",
+		"440": "Código de verificación no válido. Vuelve a intentarlo"
+	},
+	"slaveProfile": {
+		"200": "Éxito",
+		"404": "No encontrado."
+	},
+	"slaveUpdateProfile": {
+		"200": "Actualizado correctamente ...",
+		"400": "Petición Incorrecta"
+	},
+	"slaveGetService": {
+		"200": "Actualizado correctamente ...",
+		"400": "Petición Incorrecta"
+	},
+	"slaveSignIn": {
+		"200": "Iniciar sesión correctamente ...",
+		"400": "Petición Incorrecta.",
+		"402": "Móvil no verificado",
+		"403": "El perfil de este usuario aún no ha sido aprobado, comuníquese con nuestro servicio de atención al cliente para más consultas",
+		"404": "Este número / correo electrónico no está registrado con nosotros, regístrese como nuevo usuario o intente con un número / correo electrónico o contraseña diferente",
+		"405": "Su cuenta se borró",
+		"406": "ID de correo electrónico / número de teléfono incorrecto",
+		"407": "Nuestro equipo de operaciones ha prohibido su perfil. Comuníquese con nuestro equipo de soporte para obtener más información",
+		"408": "La contraseña ingresada no coincide con la dirección de correo electrónico ingresada anteriormente, pruebe con la contraseña olvidada para restablecer su contraseña o registrarse como un nuevo usuario",
+		"409": "Parece que ha introducido una nueva contraseña igual que la antigua contraseña, inténtelo de nuevo con una nueva contraseña o utilice la opción de contraseña olvidada para recuperar su contraseña",
+		"410": "Email is not allowed to empty",
+		"411": "Phone Number is not allowed to empty",
+		"415": "El administrador de la cuenta ha suspendido este perfil de usuario. Comuníquese con nuestro servicio de atención al cliente para realizar más consultas",
+		"416": "Nuestro equipo de operaciones ha eliminado su perfil. Comuníquese con nuestro equipo de asistencia para obtener más información",
+		"417": "El perfil de este usuario ha sido rechazado, póngase en contacto con nuestro servicio de atención al cliente para realizar más consultas",
+		"418": "El perfil de este usuario aún no ha sido aprobado, comuníquese con nuestro servicio de atención al cliente para obtener más información"
+	},
+	"storeManagerSignIn": {
+		"200": "Correcto",
+		"400": "Petición Incorrecta.",
+		"401": "Contraseña incorrecta, inténtelo de nuevo.",
+		"402": "Móvil no verificado",
+		"403": "Su cuenta ha sido desactivada. Escríbanos a info@flaigo.com para obtener más detalles.",
+		"404": "Usuario no encontrado",
+		"405": "Su cuenta no está activada. Active su cuenta",
+		"406": "ID de correo electrónico / número de teléfono incorrecto",
+		"407": "Su cuenta no está activada. Active su cuenta"
+	},
+	"managerSignIn": {
+		"200": "Iniciar sesión correctamente ...",
+		"400": "Petición Incorrecta.",
+		"401": "La contraseña ingresada no coincide con la dirección de correo electrónico ingresada anteriormente, pruebe con la contraseña olvidada para restablecer su contraseña o registrarse como nuevo usuario",
+		"402": "Móvil no verificado",
+		"403": "Esta cuenta de administrador aún no ha sido aprobada. Comuníquese con nuestro equipo de soporte para más consultas",
+		"404": "Este número / correo electrónico no está registrado con nosotros, regístrese como nuevo usuario o intente con un número / correo electrónico o contraseña diferente",
+		"405": "Su cuenta se borró",
+		"406": "ID de correo electrónico / número de teléfono incorrecto",
+		"407": "Nuestro equipo de operaciones ha prohibido su perfil. Comuníquese con nuestro equipo de soporte para obtener más información",
+		"415": "El administrador de la cuenta ha suspendido este perfil de usuario. Comuníquese con nuestro servicio de atención al cliente para realizar más consultas",
+		"416": "Nuestro equipo de operaciones ha eliminado su perfil. Comuníquese con nuestro equipo de asistencia para obtener más información",
+		"417": "El perfil de este usuario ha sido rechazado, póngase en contacto con nuestro servicio de atención al cliente para realizar más consultas",
+		"418": "El perfil de este usuario aún no ha sido aprobado, comuníquese con nuestro servicio de atención al cliente para realizar más consultas",
+		"404E": "Este correo electrónico no está registrado con nosotros, regístrese como nuevo usuario o intente con otro correo electrónico o contraseña",
+		"404M": "Este número no está registrado con nosotros, regístrese como nuevo usuario o intente con un número o contraseña diferente"
+	},
+	"ordersList": {
+		"200": "Correcto",
+		"400": "Petición Incorrecta."
+	},
+	"driverList": {
+		"200": "Correcto",
+		"400": "Petición Incorrecta."
+	},
+	"driverSignUp": {
+		"200": "Gracias por registrarse en FlaiGo! como FlaiGer!, su perfil está en revisión y le informaremos el estado del mismo por correo electrónico"
+	},
+	"products": {
+		"200": "Correcto",
+		"400": "Petición Incorrecta.",
+		"404": "Producto no encontrado"
+	},
+	"store": {
+		"200": "Correcto",
+		"400": "Petición Incorrecta.",
+		"404": "tienda no encontrada"
+	},
+	"franchise": {
+		"200": "Correcto",
+		"400": "Petición Incorrecta.",
+		"404": "Producto no encontrado"
+	},
+	"slaveGetProvider": {
+		"200": "Éxito",
+		"404": "No encontrado"
+	},
+	"refreshToken": {
+		"200": "Éxito",
+		"404": "No encontrado",
+		"477": "Jwt no válido",
+		"499": "Jwt caducado"
+	},
+	"slaveLocation": {
+		"200": "Éxito"
+	},
+	"slaveGetProvideLoc": {
+		"200": "Éxito"
+	},
+	"supportConfig": {
+		"200": "Éxito",
+		"404": "No encontrado"
+	},
+	"supportForgotPasswordE": {
+		"200": "Se ha enviado un correo electrónico con el enlace de restablecimiento, verifique su bandeja de entrada"
+	},
+	"supportForgotPassword": {
+		"200": "Ok",
+		"202": "Se ha enviado un correo electrónico con el enlace de restablecimiento, verifique su bandeja de entrada.",
+		"400": "Petición Incorrecta",
+		"403": "Este correo electrónico no está registrado con nosotros. Intente con otro.",
+		"404": "No encontrado",
+		"405": "Gracias por registrarte. Gracias por registrarte. Uno de nuestros representantes se comunicará contigo en las próximas 24 horas para configurar tu perfil y obtener todos los documentos necesarios",
+		"406": "Este número de móvil no está registrado con nosotros. Inténtelo con otro.",
+		"407": "Este correo electrónico no está registrado con nosotros. Intente con otro.",
+		"413": "no se puede utilizar la misma contraseña",
+		"414": "Se requiere contraseña anterior",
+		"429": "Has agotado el número de intentos de verificación, inténtalo de nuevo después de 24 horas"
+	},
+	"supportResendOTP": {
+		"200": "Código de verificación enviado",
+		"404": "Datos no encontrados",
+		"429": "Has agotado la cuota de intentos de verificación, inténtalo de nuevo después de 24 horas"
+	},
+	"supportPassword": {
+		"200": "Su contraseña se ha actualizado correctamente.",
+		"400": "Enlace caducado",
+		"404": "Datos no encontrados"
+	},
+	"supportVerifyOTP": {
+		"200": "Verificación exitosa",
+		"201": "enviar correctamente el código de verificación ...",
+		"400": "Petición Incorrecta",
+		"401": "Este número de móvil ya está verificado",
+		"402": "se requiere código de verificación",
+		"405": "El tiempo del código de verificación expira.",
+		"406": "Intento de alcance máximo solicitar nueva opción",
+		"407": "El código de verificación es incorrecto",
+		"410": "Código de verificación no válido. Vuelve a intentarlo",
+		"411": "este código de verificación ya está verificado o el ID del código de verificación no es válido",
+		"429": "Has agotado la cuota de intentos de verificación, inténtalo de nuevo después de 24 horas"
+	},
+	"supportLogOut": {
+		"200": "Se desconectó correctamente.",
+		"204": "Usuario no encontrado"
+	},
+	"supportFAQ": {
+		"200": "Éxito"
+	},
+	"fare": {
+		"200": "Tengo los detalles",
+		"400": "La tienda no pudo procesar el tipo de pedido que eligió"
+	},
+	"supportCancelReason": {
+		"200": "Conseguir los detalles"
+	},
+	"supportAccessToken": {
+		"200": "Conseguir los detalles",
+		"404": "Datos no encontrados"
+	},
+	"supportReview": {
+		"200": "Obtener los detalles",
+		"404": "Datos no encontrados"
+	},
+	"supportGetReview": {
+		"200": "Obtener los detalles",
+		"404": "Revisión no encontrada"
+	},
+	"supportPhone": {
+		"200": "Actualización exitosa",
+		"404": "Usuario no encontrado"
+	},
+	"addAddress": {
+		"200": "Dirección agregada correctamente"
+	},
+	"editAddress": {
+		"200": "Dirección actualizada correctamente",
+		"403": "¡Vaya! No operamos en su región en este momento, seleccione una dirección diferente"
+	},
+	"getAddress": {
+		"200": "Éxito",
+		"404": "dirección no encontrada"
+	},
+	"removeAddress": {
+		"200": "Dirección eliminada correctamente"
+	},
+	"referalCode": {
+		"200": "El código de referencia es válido",
+		"400": "Código de referencia no válido"
+	},
+	"disLogin": {
+		"200": "Iniciar sesión correctamente",
+		"401": "Contraseña incorrecta, inténtelo de nuevo.",
+		"404": "Usuario no encontrado"
+	},
+	"disProvider": {
+		"200": "Obtener la lista de proveedores"
+	},
+	"createBooking": {
+		"200": "La reserva se creó correctamente"
+	},
+	"ackBooking": {
+		"200": "La reserva se actualizó correctamente",
+		"404": "Reserva no encontrada"
+	},
+	"responseBooking": {
+		"200": "La reserva se actualizó correctamente",
+		"404": "Reserva no encontrada"
+	},
+	"statusBooking": {
+		"200": "La reserva se actualizó correctamente",
+		"400": "El estado de la reserva no se actualiza",
+		"404": "Reserva no encontrada"
+	},
+	"getMasterBooking": {
+		"200": "Obtener todos los detalles de la reserva"
+	},
+	"historyMasterBooking": {
+		"200": "Obtener todos los detalles de la reserva"
+	},
+	"getSlaveBooking": {
+		"200": "Obtener todos los detalles de la reserva"
+	},
+	"getSlaveOneBooking": {
+		"200": "Obtener todos los detalles de la reserva",
+		"404": "Reserva no encontrada"
+	},
+	"cancelBookingSlave": {
+		"200": "La reserva se canceló correctamente",
+		"404": "Reserva no encontrada"
+	},
+	"timerBooking": {
+		"200": {
+			"0": "El temporizador se inicia"
+		},
+		"400": {
+			"0": "El temporizador ya se ha iniciado"
+		},
+		"404": "Reserva no encontrada"
+	},
+	"cancelBookingMaster": {
+		"200": "La reserva se canceló correctamente",
+		"404": "Reserva no encontrada"
+	},
+	"stripeAddCard": {
+		"200": "Agregado exitosamente.",
+		"404": "Usuario no encontrado"
+	},
+	"stripeGetCard": {
+		"200": "Agregado exitosamente.",
+		"404": "Usuario no encontrado"
+	},
+	"stripeDeleteCard": {
+		"200": "Obtener detalles de la tarjeta",
+		"402": "Tarjeta no encontrada",
+		"404": "Usuario no encontrado"
+	},
+	"stripeDefualtCard": {
+		"200": "Obtener detalles de la tarjeta",
+		"404": "Usuario no encontrado"
+	},
+	"stripeAddBank": {
+		"200": "Agregado exitosamente.",
+		"404": "Usuario no encontrado"
+	},
+	"stripeGetBank": {
+		"200": "Agregado exitosamente.",
+		"404": "Usuario no encontrado"
+	},
+	"stripeDeleteBank": {
+		"200": "Eliminar datos bancarios",
+		"400": "No se puede eliminar la cuenta predeterminada. Establezca otra cuenta predeterminada y luego elimine esta cuenta.",
+		"404": "No existe tal cuenta"
+	},
+	"stripeDefualtBank": {
+		"200": "Eliminar datos bancarios",
+		"400": "No se puede eliminar la cuenta predeterminada. Establezca otra cuenta predeterminada y luego elimine esta cuenta.",
+		"404": "No existe tal cuenta"
+	},
+	"checkOperationZone": {
+		"200": "En zona operativa",
+		"400": "Lo sentimos, no realizamos entregas en la dirección seleccionada en este momento porque está fuera del alcance de la entrega",
+		"404": "No existe tal cuenta"
+	},
+	"appVersionAlreadyExist": {
+		"400": "La versión de la aplicación con este tipo ya existe, seleccione un nuevo tipo"
+	},
+	"symptoms": {
+		"get": {
+			"description": "Api para obtener información",
+			"notes": "Esta API permite al usuario obtener información"
+		},
+		"post": {
+			"description": "Api para agregar información",
+			"notes": "Esta API permite al usuario agregar información"
+		},
+		"patch": {
+			"description": "Api para información de actualización.",
+			"notes": "Esta API permite al usuario actualizar la información"
+		},
+		"put": {
+			"description": "Api para cambiar el estado de la información",
+			"notes": "Esta API permite al usuario cambiar el estado de la información"
+		},
+		"delete": {
+			"description": "Api para eliminar información.",
+			"notes": "Esta API permite al usuario eliminar información"
+		},
+		"response": {
+			"200": "Éxito"
+		}
+	},
+	"taxSetup": {
+		"get": {
+			"description": "Api para obtener detalles de impuestos",
+			"notes": "Esta API permite al usuario obtener información fiscal"
+		},
+		"post": {
+			"description": "Api para agregar detalles de impuestos",
+			"notes": "Esta API permite al usuario agregar detalles de impuestos"
+		},
+		"patch": {
+			"description": "Api para actualizar los detalles fiscales",
+			"notes": "Esta API permite al usuario actualizar los datos fiscales"
+		},
+		"put": {
+			"description": "Api para cambiar el estado de los datos fiscales",
+			"notes": "Esta API permite al usuario cambiar el estado de los datos fiscales"
+		},
+		"delete": {
+			"description": "Api para eliminar detalles de impuestos",
+			"notes": "Esta API permite al usuario eliminar los datos fiscales"
+		},
+		"response": {
+			"200": "Éxito"
+		}
+	},
+	"getStoreCategorySettings": {
+		"404": {
+			"city": "No se ha encontrado ninguna ciudad a partir de CityId o Latitude & Longitude",
+			"categoría": "No se ha encontrado la configuración de la categoría. Defina mejor su búsqueda"
+		},
+		"412": "ciudad no encontrada en latitud y longitud",
+		"413": "ID de ciudad no válido"
+	},
+	"specialities": {
+		"get": {
+			"description": "Api para Get Specialties.",
+			"notes": "Esta API permite al usuario obtener especialidades"
+		},
+		"getAll": {
+			"description": "Api para obtener todas las especialidades",
+			"notes": "Esta API permite al usuario obtener todas las especialidades"
+		},
+		"post": {
+			"description": "Api para agregar especialidades",
+			"notes": "Esta API permite al usuario agregar especialidades"
+		},
+		"patch": {
+			"description": "Api para Editar especialidades.",
+			"notes": "Esta API permite al usuario editar especialidades"
+		},
+		"delete": {
+			"description": "Api para eliminar especialidades.",
+			"notes": "Esta API permite al usuario eliminar especialidades"
+		},
+		"response": {
+			"404": "No encontrado. Defina mejor su búsqueda"
+		},
+		"responseDescription": {
+			"404": "Esto ocurrirá mientras no se encuentren los datos solicitados"
+		}
+	},
+	"storeAttributes": {
+		"get": {
+			"description": "Api para obtener el atributo de tienda",
+			"notes": "Esta API permite al usuario obtener el atributo de tienda"
+		},
+		"getAll": {
+			"description": "Api para obtener el atributo de todas las tiendas",
+			"notes": "Esta API permite al usuario obtener todos los atributos de la tienda"
+		},
+		"post": {
+			"description": "Api para agregar atributo de tienda",
+			"notes": "Esta API permite al usuario agregar el atributo de tienda"
+		},
+		"patch": {
+			"description": "Api para editar el atributo de la tienda",
+			"notes": "Esta API permite al usuario editar el atributo de la tienda"
+		},
+		"put": {
+			"description": "Api para cambiar el estado del atributo de la tienda",
+			"notes": "Esta API permite al usuario cambiar el estado del atributo de la tienda"
+		},
+		"delete": {
+			"description": "Api para eliminar el atributo de la tienda",
+			"notes": "Esta API permite al usuario eliminar el atributo de la tienda"
+		},
+		"response": {
+			"404": "No encontrado. Defina mejor su búsqueda"
+		},
+		"responseDescription": {
+			"404": "Esto ocurrirá mientras no se encuentren los datos solicitados"
+		}
+	},
+	"googleKeys": {
+		"get": {
+			"description": "Api para obtener claves de Google.",
+			"notes": "Esta API permite al usuario obtener claves de Google"
+		},
+		"getAll": {
+			"description": "Api para obtener todas las claves de Google.",
+			"notes": "Esta API permite al usuario obtener todas las claves de Google"
+		},
+		"post": {
+			"description": "Api para agregar claves de Google.",
+			"notes": "Esta API permite al usuario agregar claves de Google"
+		},
+		"patch": {
+			"description": "Api para editar claves de Google.",
+			"notes": "Esta API permite al usuario editar claves de Google"
+		},
+		"delete": {
+			"description": "Api para eliminar claves de Google.",
+			"notes": "Esta API permite al usuario eliminar claves de Google"
+		},
+		"response": {
+			"404": "No encontrado. Defina mejor su búsqueda"
+		},
+		"responseDescription": {
+			"404": "Esto ocurrirá mientras no se encuentren los datos solicitados"
+		}
+	},
+	"videoSlotAttribute": {
+		"get": {
+			"description": "Api para obtener el atributo de video",
+			"notes": "Esta API permite al usuario obtener el atributo de video"
+		},
+		"response": {
+			"404": "No encontrado. Defina mejor su búsqueda"
+		},
+		"responseDescription": {
+			"404": "Esto ocurrirá mientras no se encuentren los datos solicitados"
+		}
+	},
+	"contactFormFields": {
+		"get": {
+			"description": "Api para obtener campos de formulario de contacto.",
+			"notes": "Esta API permite al usuario obtener campos de formulario de contacto"
+		},
+		"post": {
+			"description": "Api para agregar campos de formulario de contacto.",
+			"notes": "Esta API permite al usuario agregar campos de formulario de contacto"
+		},
+		"patch": {
+			"description": "Api para actualizar campos del formulario de contacto.",
+			"notes": "Esta API permite al usuario actualizar campos del formulario de contacto"
+		},
+		"delete": {
+			"description": "Api para eliminar campos de formulario de contacto.",
+			"notes": "Esta API permite al usuario eliminar campos del formulario de contacto"
+		},
+		"response": {
+			"200": "Correcto",
+			"400": "Falta el campo %s / no es válido",
+			"404": "Datos no encontrados con su ID",
+			"500": "Error interno de servidor"
+		},
+		"responseDescription": {
+			"200": "Esto se obtendrá mientras la solicitud se ejecute correctamente.",
+			"400": "Solicitud incorrecta mientras algunos datos faltan o no son válidos",
+			"404": "Esto ocurrirá mientras no se encuentren los datos solicitados.",
+			"500": "Este error se produce mientras se produce un error interno del servidor"
+		}
+	},
+	"caseStudyDynamicFields": {
+		"get": {
+			"description": "Api para obtener campos dinámicos de casos de estudio",
+			"notes": "Esta API permite al usuario obtener campos dinámicos de casos de estudio"
+		},
+		"post": {
+			"description": "Api para agregar campos dinámicos de casos de estudio",
+			"notes": "Esta API permite al usuario agregar campos dinámicos de casos de estudio"
+		},
+		"patch": {
+			"description": "Api para actualizar campos dinámicos de casos de estudio",
+			"notes": "Esta API permite al usuario actualizar campos dinámicos de casos de estudio"
+		},
+		"delete": {
+			"description": "Api para eliminar campos dinámicos de casos de estudio",
+			"notes": "Esta API permite al usuario eliminar campos dinámicos de casos de estudio"
+		},
+		"response": {
+			"200": "Correcto",
+			"400": "Falta el campo %s / no es válido",
+			"404": "Datos no encontrados con su ID",
+			"500": "Error interno de servidor"
+		},
+		"responseDescription": {
+			"200": "Esto se obtendrá mientras la solicitud no se ejecute correctamente.",
+			"400": "Solicitud incorrecta mientras algunos datos faltan o no son válidos",
+			"404": "Esto ocurrirá mientras no se encuentren los datos solicitados.",
+			"500": "Este error se produce mientras se produce un error interno del servidor"
+		}
+	},
+	"contactFormSubmissions": {
+		"post": {
+			"description": "Api para Agregar solicitud de formulario de contacto",
+			"notes": "Esta API permite al usuario agregar una solicitud de formulario de contacto"
+		},
+		"get": {
+			"description": "Api para obtener solicitudes de formulario de contacto.",
+			"notes": "Esta API permite al usuario obtener solicitudes de formulario de contacto"
+		},
+		"response": {
+			"200": "Correcto",
+			"400": "Falta el campo %s / no es válido",
+			"404": "Datos no encontrados con su ID",
+			"500": "Error interno de servidor"
+		},
+		"responseDescription": {
+			"200": "Esto se obtendrá mientras la solicitud se ejecute correctamente.",
+			"400": "Solicitud incorrecta mientras algunos datos faltan o no son válidos",
+			"404": "Esto ocurrirá mientras no se encuentren los datos solicitados.",
+			"500": "Este error se produce mientras se produce un error interno del servidor"
+		}
+	},
+	"caseStudyDetails": {
+		"get": {
+			"description": "Api para Get Case Study List.",
+			"notes": "Esta API permite al usuario obtener una lista de casos a revisar"
+		},
+		"post": {
+			"description": "Api para Agregar lista de casos a revisar",
+			"notes": "Esta API permite al usuario agregar una lista de casos a revisar"
+		},
+		"patch": {
+			"description": "Api para actualizar la lista de casos de estudio.",
+			"notes": "Esta API permite al usuario actualizar la lista de casos a revisar"
+		},
+		"delete": {
+			"description": "Api para eliminar la lista de casos a revisar.",
+			"notes": "Esta API permite al usuario eliminar la lista de casos a revisar"
+		},
+		"response": {
+			"200": "Correcto",
+			"400": "Falta el campo %s / no es válido",
+			"404": "Datos no encontrados con su ID",
+			"500": "Error interno de servidor"
+		},
+		"responseDescription": {
+			"200": "Esto se obtendrá mientras la solicitud se ejecute correctamente.",
+			"400": "Solicitud incorrecta mientras algunos datos faltan o no son válidos",
+			"404": "Esto ocurrirá mientras no se encuentren los datos solicitados.",
+			"500": "Este error se produce mientras se produce un error interno del servidor"
+		}
+	},
+	"slots": {
+		"get": {
+			"description": "Api para obtener espacios",
+			"notes": "Esta API permite al usuario obtener espacios",
+			"fields": {
+				"storeId": "Identificación de la tienda para obtener espacios",
+				"actualStoreId": "Identificación real de la tienda en caso de verificar con el horario de trabajo.",
+				"date": "fecha para obtener espacios en formato AAAA-MM-DD.",
+				"upto": "para obtener espacios hasta días desde el campo de fecha.",
+				"bufferTime": "Tiempo de búfer en minutos para obtener espacios",
+				"slotsAfter": "marca de tiempo para obtener casilla después de la hora.",
+				"latitude": "Ubicación desde la que desea ranuras.",
+				"longitude": "Ubicación desde la que se quieren espacios",
+				"zoneId": "ID de zona para la que desea ranuras",
+				"cityId": "City Id for which want slots.",
+				"slotData": "Datos de la casilla",
+				"id": "ID de la casilla",
+				"startTime": "Hora de inicio de la casilla",
+				"endTime": "Hora de finalización del intervalo",
+				"slotType": "Tipo de ranura 1: entrega de UltimaMilla, 2 tiendas a CC",
+				"status": "obtén el recuento de pedidos según el estado. "
+			},
+			"response": {
+				"403": "Tipo de usuario no válido",
+				"404": "Zona no disponible"
+			},
+			"responseDescription": {
+				"403": "Esto ocurrirá cuando el usuario lo solicite no es válido.",
+				"404": "Esto ocurrirá mientras no se encuentren los datos solicitados"
+			}
+		}
+	},
+	"vouchers": {
+		"get": {
+			"description": "Api para obtener un cupón.",
+			"notes": "Esta API permite al usuario obtener un cupón"
+		},
+		"post": {
+			"description": "Api para agregar cupón",
+			"notes": "Esta API permite al usuario agregar cupones"
+		},
+		"patch": {
+			"description": "Api para actualizar cupón.",
+			"notes": "Esta API permite al usuario actualizar el cupón"
+		},
+		"delete": {
+			"description": "Api para eliminar cupón",
+			"notes": "Esta API permite al usuario eliminar el cupón"
+		},
+		"response": {
+			"200": "Correcto",
+			"400": "Falta el campo %s / no es válido",
+			"404": "No se encontró el cupón con su identificación",
+			"409": "El cupón ya existe",
+			"500": "Error interno de servidor",
+			"404c": "Ciudad no encontrada con su ID de ciudad"
+		},
+		"responseDescription": {
+			"200": "Esto se obtendrá mientras la solicitud se ejecute correctamente.",
+			"400": "Solicitud incorrecta mientras algunos datos faltan o no son válidos",
+			"404": "Esto ocurrirá mientras no se encuentren los datos solicitados.",
+			"409": "Esto ocurrirá mientras los datos solicitados ya existan.",
+			"500": "Este error se produce mientras se produce un error interno del servidor"
+		}
+	},
+	"voucherPacks": {
+		"get": {
+			"description": "Api para obtener paquete de cupones.",
+			"notes": "Esta API permite al usuario obtener un paquete de cupones"
+		},
+		"post": {
+			"description": "Api para agregar paquete de cupones",
+			"notes": "Esta API permite al usuario agregar un paquete de cupones"
+		},
+		"patch": {
+			"description": "Api para actualizar el estado del paquete de cupones",
+			"notes": "Esta API permite al usuario actualizar el estado del paquete de cupones"
+		},
+		"delete": {
+			"description": "Api para eliminar paquete de cupones.",
+			"notes": "Esta API permite al usuario eliminar el paquete de cupones"
+		},
+		"response": {
+			"200": "Correcto",
+			"400": "Falta el campo %s / no es válido",
+			"404": "Paquete de cupón no encontrado con su identificación o caducado",
+			"409": "Paquete de cupón ya eliminado",
+			"500": "Error interno de servidor",
+			"409d": "Fecha de inicio y vencimiento no válida",
+			"409edt": "Las fechas excluidas están fuera del intervalo de fechas de inicio y vencimiento",
+			"409a": "El paquete de cupones ya está activo",
+			"409da": "El paquete de cupones ya está desactivado"
+		},
+		"responseDescription": {
+			"200": "Esto se obtendrá mientras la solicitud se ejecute correctamente.",
+			"400": "Solicitud incorrecta mientras algunos datos faltan o no son válidos",
+			"404": "Esto ocurrirá mientras no se encuentren los datos solicitados.",
+			"409": "Esto ocurrirá mientras los datos solicitados ya existan.",
+			"500": "Este error se produce mientras se produce un error interno del servidor"
+		}
+	},
+	"bookMarks": {
+		"get": {
+			"description": "Api para obtener marcadores.",
+			"notes": "Esta API permite al usuario obtener marcadores"
+		},
+		"post": {
+			"description": "Api para Agregar marcadores.",
+			"notes": "Esta API permite al usuario agregar marcadores"
+		},
+		"delete": {
+			"description": "Api para eliminar marcadores.",
+			"notes": "Esta API permite al usuario eliminar marcadores"
+		},
+		"response": {
+			"404": {
+				"bookmark": "Marcadores no encontrados",
+				"user": "usuario no encontrado"
+			}
+		}
+	},
+	"voucherList": {
+		"get": {
+			"description": "Api para obtener lista de cupones",
+			"notes": "Esta API permite al usuario obtener una lista de cupones"
+		},
+		"purchase": {
+			"description": "Api para actualizar la lista de cupones y comprar cupones",
+			"notes": "Esta API permite al usuario comprar cupones"
+		},
+		"claim": {
+			"description": "Api para actualizar la lista de comprobantes y reclamar comprobantes",
+			"notes": "Esta API permite al usuario utilizar / reclamar el cupón comprado"
+		},
+		"validate": {
+			"description": "Api para obtener el estado del cupón",
+			"notes": "Esta API permite obtener el estado del cupón"
+		},
+		"response": {
+			"200": "Correcto",
+			"400": "Falta el campo %s / no es válido",
+			"404": "No se encontró el cupón con su código o el ID del paquete de cupón es incorrecto",
+			"500": "Error interno de servidor",
+			"409p": "El cupón solicitado ya se compró",
+			"409np": "El cupón solicitado no se ha comprado, primero el cupón de compra",
+			"409c": "El cupón solicitado ya ha sido reclamado",
+			"409e": "El cupón solicitado ha caducado",
+			"409d": "Se ha eliminado el cupón solicitado"
+		},
+		"responseDescription": {
+			"200": "Esto se obtendrá mientras la solicitud se ejecute correctamente.",
+			"400": "Solicitud incorrecta mientras algunos datos faltan o no son válidos",
+			"404": "Esto ocurrirá mientras no se encuentren los datos solicitados.",
+			"500": "Este error se produce mientras se produce un error interno del servidor.",
+			"409p": "Esto ocurrirá mientras el cupón solicitado ya se haya comprado.",
+			"409np": "Esto ocurrirá mientras el bono solicitado no se haya comprado y esté intentando reclamar.",
+			"409c": "Esto ocurrirá mientras el cupón solicitado ya se haya reclamado.",
+			"409e": "Esto ocurrirá mientras el comprobante solicitado haya caducado.",
+			"409d": "Esto ocurrirá mientras se haya eliminado el comprobante solicitado"
+		}
+	},
+	"aboutUs": {
+		"get": {
+			"description": "Api para obtener detalles acerca de nosotros",
+			"notes": "Esta API permite al usuario obtener detalles acerca de nosotros"
+		},
+		"patch": {
+			"description": "Api para actualizar los detalles de Acerca de nosotros.",
+			"notes": "Esta API permite al usuario actualizar los detalles de Acerca de nosotros"
+		},
+		"response": {
+			"200": "Correcto",
+			"400": "Falta el campo %s / no es válido",
+			"404": "Datos no encontrados con su ID",
+			"500": "Error interno de servidor"
+		},
+		"responseDescription": {
+			"200": "Esto se obtendrá mientras la solicitud se ejecute correctamente.",
+			"400": "Solicitud incorrecta mientras algunos datos faltan o no son válidos",
+			"404": "Esto ocurrirá mientras no se encuentren los datos solicitados.",
+			"500": "Este error se produce mientras se produce un error interno del servidor"
+		}
+	},
+	"stores": {
+		"200": "Éxito",
+		"201": "Éxito",
+		"404": "Datos no encontrados",
+		"409": "store alis name already exist with other stores"
+	},
+	"orders": {
+		"200": "Pedido realizado correctamente",
+		"201": "El pasajero ha cancelado la reserva.",
+		"301": "La reserva ya está completa.",
+		"302": "Estado de la reserva actualizado ya ...",
+		"303": "Reserva vencida o aceptada por otro",
+		"400": "controlador no encontrado",
+		"402": "El carrito no debe estar vacío",
+		"404": "Pedido no encontrado"
+	},
+	"virtualOrders": {
+		"404": {
+			"order": "Video Llamada de la Orden no encontrada.",
+			"slotTime": "Tiempos disponibles no encontrados con su pedido"
+		},
+		"409": {
+			"accept": "los pedidos deben aceptarse primero",
+			"cancel": "Los pedidos aprobados no se pueden cancelar",
+			"reAccept": "Los pedidos cancelados y rechazados no se pueden aceptar ni reclamar",
+			"userMismatch": "No puedes generar clave porque su ID de usuario no tiene ninguna solicitud de video",
+			"startMismatch": "No puedes generar clave porque tu videollamada aún no ha comenzado",
+			"endMismatch": "No puedes generar clave porque tu sesión de videollamada ha caducado"
+		}
+	},
+	"virtualPlan": {
+		"404": "Plan virtual no encontrado"
+	},
+	"virtualPlanLog": {
+		"404": "No se encontraron los registros del plan virtual"
+	},
+	"bookings": {
+		"200": "Actualizado correctamente.",
+		"201": "Reserva cancelada.",
+		"301": "La reserva ya está completa.",
+		"302": "Estado de la reserva actualizado ya ...",
+		"303": "Reserva vencida o aceptada por otro",
+		"304": "Se pasó una cantidad no válida.",
+		"400": "controlador no encontrado",
+		"403": "Pedido ya cancelado",
+		"404": "Reservas no encontradas en la fecha seleccionada",
+		"405": "Este es el último artículo del pedido. Si cancela este artículo, resultará en la cancelación de todo el pedido. ¿Le gustaría procesarlo?"
+	},
+	"assignedOrders": {
+		"200": "Actualizado correctamente"
+	},
+	"cart": {
+		"200": "Éxito",
+		"201": "Se agregó correctamente al carrito.",
+		"202": "Eliminado correctamente del carrito.",
+		"203": "Se actualizó correctamente en el carrito.",
+		"401": " %s no acepta pedidos actualmente.",
+		"403": "Complete su pedido activo antes de enviar un nuevo pedido",
+		"404": "Datos no encontrados",
+		"412": "El artículo ya está en el carrito.",
+		"413": "carrito ya disponible con el mismo usuario",
+		"414": "Se permite una sola tienda en el carrito con esta categoría.",
+		"415": "La siguiente tienda no se puede entregar para su ubicación.",
+		"416": "Ha alcanzado el límite máximo permitido por pedido para esta categoría de producto, el límite del regulador gubernamental se establece como %s botellas para esta categoría",
+		"417": "Ha alcanzado el límite máximo permitido por pedido para esta categoría de producto, el límite del regulador gubernamental se establece como %s %s para esta categoría",
+		"418": "No puede pedir más de %s artículos por pedido para este producto."
+	},
+	"checkout": {
+		"200": "Éxito",
+		"201": "Se agregó correctamente al carrito.",
+		"202": "Eliminado correctamente del carrito.",
+		"203": "Algunos de los artículos se han modificado dentro del carrito.",
+		"404": "Datos no encontrados",
+		"412": "El artículo ya está en el carrito"
+	},
+	"shoppingList": {
+		"200": "Éxito",
+		"201": "Se agregó correctamente a carrito de compras",
+		"202": "Eliminado correctamente del carrito de compras.",
+		"203": "Se actualizó correctamente en carrito de compras.",
+		"404": "Datos no encontrados",
+		"412": "El artículo ya está en carrito de compras"
+	},
+	"storeList": {
+		"200": "Éxito",
+		"201": "Se agregó correctamente a la lista de tienda.",
+		"202": "Eliminado correctamente de la lista de tienda.",
+		"203": "Actualizado con éxito a la lista de Tienda.",
+		"404": "Datos no encontrados",
+		"412": "Producto ya existe en la lista de tienda"
+	},
+	"wishList": {
+		"200": "Éxito",
+		"201": "Agregado exitosamente la lista deseada.",
+		"202": "Eliminado correctamente de la lista deseada",
+		"203": "Actualizado correctamente.",
+		"404": "Datos no encontrados",
+		"412": "El producto ya está en la lista deseada"
+	},
+	"PostProduct": {
+		"201": "Producto agregado correctamente"
+	},
+	"GetProduct": {
+		"200": "Producto encontrado correctamente.",
+		"412": "El producto no existe"
+	},
+	"vehicles": {
+		"200": "Agregado exitosamente.",
+		"400": "Tipo de vehículo no encontrado",
+		"401": "Tipo de vehículo no encontrado",
+		"404": "Vehículo no encontrado"
+	},
+	"verifyId": {
+		"401": "Su tarjeta de identidad no está verificada",
+		"402": "Su tarjeta MMJ no está verificada"
+	},
+	"customer": {
+		"200": "Correcto",
+		"404": "Datos no encontrados"
+	},
+	"promoCampaigns": {
+		"200": "Correcto",
+		"400": "No se encontraron códigos promocionales",
+		"401": "No se encontraron detalles",
+		"404": "Datos no encontrados"
+	},
+	"promoCode": {
+		"200": "Código de cupón agregado correctamente",
+		"400": "No se encontraron códigos promocionales",
+		"401": "No se encontraron detalles",
+		"404": "Datos no encontrados"
+	},
+	"signIn": {
+		"405": "Su cuenta se eliminó, comuníquese con nuestro servicio de asistencia para más consultas.",
+		"410": "Se requiere correo electrónico",
+		"411": "número de móvil obligatorio",
+		"412": "código de país obligatorio",
+		"414": "contraseña requerida",
+		"410e": "Correo electrónico no válido"
+	},
+	"postBookingAck": {
+		"200": "Correcto",
+		"400": "La reserva ha caducado.",
+		"404": "Reserva no encontrada"
+	},
+	"fareMsg": {
+		"200": "Tengo los detalles",
+		"400": "La siguiente tienda no se puede entregar para su ubicación"
+	},
+	"storeSignUp": {
+		"200": "Registro exitoso"
+	},
+	"messages": {
+		"sessionMsgPushBody": "Su sesión ha expirado, inicie sesión nuevamente para continuar accediendo a su cuenta.",
+		"sessionMsgPushTitle": "Sesión caducada",
+		"ban": "Nuestro administrador ha prohibido su perfil, póngase en contacto con nuestro servicio de asistencia para realizar más consultas",
+		"reject": "Nuestro administrador rechazó su perfil, comuníquese con nuestro servicio de asistencia para realizar más consultas",
+		"new": "Uno de nuestros representantes se pondrá en contacto con usted en las próximas 24 horas para configurar su perfil y obtener todos los documentos necesarios",
+		"logOut": "Nuestro equipo de operaciones ha cerrado la sesión. Vuelva a iniciar sesión para seguir accediendo a su cuenta"
+	},
+	"getAppConfig": {
+		"200": "éxito",
+		"402": "Tipo de dispositivo no válido",
+		"404": "cuenta no encontrada"
+	},
+	"getZoneErrMsg": {
+		"200": "Éxito",
+		"404": "No se ha encontrado ninguna ciudad"
+	},
+	"postStatus": {
+		"200": "éxito"
+	},
+	"postStatusRide": {
+		"200": "Correcto",
+		"400": "No se puede actualizar el estado no válido",
+		"401": "Ubicación no válida",
+		"402": "No se puede calcular la distancia",
+		"404": "La reserva ha sido cancelada o completada"
+	},
+	"postRespondTo": {
+		"200": "Correcto",
+		"400": "La reserva ha sido cancelada o aceptada por otro conductor.",
+		"404": "Reserva no encontrada",
+		"405": "Datos del controlador no encontrados",
+		"406": "Estado de respuesta de reserva no encontrado",
+		"407": "Estado de datos del vehículo no encontrado"
+	},
+	"logs": {
+		"200": "Nuevo registro publicado correctamente"
+	},
+	"promo": {
+		"200": "Promoción añadida correctamente"
+	},
+	"inventoryCheck": {
+		"400": "Artículo agotado",
+		"403": "Algunos de los artículos de su carrito están agotados"
+	},
+	"adminPostSignIn": {
+		"404": "Perfil de administrador no encontrado"
+	},
+	"inventoryStock": {
+		"400": "Producto no encontrado"
+	},
+	"card": {
+		"404": "No hay ninguna tarjeta con el ID de cliente proporcionado"
+	},
+	"stripeAccount": {
+		"200": "Cuenta en línea conectada creada correctamente",
+		"404": "No hay una cuenta conectada con la clave indicada"
+	},
+	"plan": {
+		"200": "plan eliminado correctamente",
+		"updated": "plan actualizado correctamente",
+		"created": "plan creado correctamente"
+	},
+	"subscribe": {
+		"200": "suscripción eliminada correctamente",
+		"404": "No hay ningún plan suscrito"
+	},
+	"apiDescription": {
+		"login": "Esta API se utiliza para iniciar sesión",
+		"signup": "Esta API se utiliza para registrarse",
+		"captureCharge": "Esta API se utiliza para capturar el cargo",
+		"getCharge": "Esta API se usa para cobrar",
+		"postCharge": "Esta API se utiliza para publicar cargos",
+		"refundCharge": "Esta API se utiliza para reembolsar el cargo",
+		"cardToken": "Esta API se utiliza para obtener el token de la tarjeta",
+		"deleteCard": "Esta API se utiliza para eliminar la tarjeta",
+		"getCard": "Esta API se utiliza para obtener la tarjeta",
+		"patchCard": "Esta API se utiliza para actualizar la tarjeta",
+		"postCard": "Esta API se utiliza para crear un cliente y agregar una tarjeta a ese cliente",
+		"deletePlan": "Esta API se utiliza para eliminar un plan",
+		"getPlan": "Esta API se utiliza para obtener un plan",
+		"patchPlan": "Esta API se utiliza para actualizar el plan",
+		"postPlan": "Esta API se utiliza para crear un plan",
+		"getStripeAccount": "Esta API se utiliza para obtener detalles de la cuenta en línea",
+		"patchStripeAccount": "Esta API se utiliza para actualizar la cuenta en línea",
+		"postStripeAccount": "Esta API se utiliza para crear una cuenta en stripe",
+		"deleteExternalAccount": "Esta API se utiliza para eliminar la cuenta bancaria de la cuenta en línea",
+		"patchExternalAccount": "Esta API se utiliza para actualizar la cuenta bancaria de la cuenta en línea",
+		"postExternalAccount": "Esta API se utiliza para agregar una cuenta bancaria en la cuenta en línea",
+		"getStripeAccountAdmin": "Esta API se utiliza para obtener detalles de la cuenta en línea",
+		"patchStripeAccountAdmin": "Esta API se utiliza para actualizar la cuenta en línea",
+		"postStripeAccountAdmin": "Esta API se utiliza para crear una cuenta en stripe",
+		"deleteExternalAccountAdmin": "Esta API se utiliza para eliminar la cuenta bancaria de la cuenta en línea",
+		"patchExternalAccountAdmin": "Esta API se utiliza para actualizar la cuenta bancaria de la cuenta en línea",
+		"postExternalAccountAdmin": "Esta API se utiliza para agregar una cuenta bancaria en la cuenta en línea",
+		"deleteSubscribe": "Esta API se utiliza para eliminar una suscripción",
+		"getSubscribe": "Esta API se utiliza para obtener una suscripción",
+		"patchSubscribe": "Esta API se utiliza para actualizar la suscripción",
+		"postSubscribe": "Esta API se utiliza para crear una suscripción",
+		"payoff": "Esta API se utiliza para pagar al usuario del administrador",
+		"stripeCardPost": "Esta API permite al usuario agregar una nueva tarjeta en línea.",
+		"stripeCardGet": "Esta API permite al usuario obtener todas las tarjetas agregadas",
+		"stripeCardPatch": "Esta API permite al usuario cambiar la tarjeta predeterminada.",
+		"stripeCardDelete": "Esta API permite al usuario eliminar la tarjeta agregada.",
+		"stripeConnectAccountGet": "Esta API permite al usuario obtener detalles de la cuenta en línea conectada",
+		"stripeConnectAccountPost": "Esta API permite al usuario crear o actualizar una cuenta en línea conectada",
+		"stripeExternalAccountPost": "Esta API permite al usuario agregar un nuevo banco en línea",
+		"stripeExternalAccountPatch": "Esta API permite al usuario cambiar el banco predeterminado",
+		"stripeExternalAccountDelete": "Esta API permite al usuario eliminar el banco agregado.",
+		"stripePlanPost": "Esta API permite al usuario administrador agregar un nuevo plan de suscripción en línea.",
+		"stripePlanGet": "Esta API permite al usuario obtener todos los planes de suscripción agregados",
+		"stripePlanPatch": "Esta API permite al usuario administrador modificar los detalles del plan.",
+		"stripePlanDelete": "Esta API permite al usuario administrador eliminar el plan agregado.",
+		"stripeSubscribePost": "Esta API permite al usuario suscribirse al plan en línea.",
+		"stripeSubscribeGet": "Esta API permite al usuario obtener detalles de suscripción",
+		"stripeSubscribePatch": "Esta API permite al usuario modificar los detalles de la suscripción",
+		"stripeSubscribeDelete": "Esta API permite eliminar la suscripción en línea"
+	},
+	"apiNotes": {
+		"login": "Esta API se utiliza para iniciar sesión",
+		"signup": "Esta API se utiliza para registrarse",
+		"captureCharge": "Esta API se utiliza para capturar el cargo",
+		"getCharge": "Esta API se usa para cobrar",
+		"postCharge": "Esta API se utiliza para publicar cargos",
+		"refundCharge": "Esta API se utiliza para reembolsar el cargo",
+		"cardToken": "Esta API se utiliza para obtener el token de la tarjeta",
+		"deleteCard": "Esta API se utiliza para eliminar la tarjeta",
+		"getCard": "Esta API se utiliza para obtener la tarjeta",
+		"patchCard": "Esta API se utiliza para actualizar la tarjeta",
+		"postCard": "Esta API se utiliza para crear un cliente y agregar una tarjeta a ese cliente",
+		"deletePlan": "Esta API se utiliza para eliminar un plan",
+		"getPlan": "Esta API se utiliza para obtener un plan",
+		"patchPlan": "Esta API se utiliza para actualizar el plan",
+		"postPlan": "Esta API se utiliza para crear un plan",
+		"getStripeAccount": "Esta API se utiliza para obtener detalles de la cuenta en línea",
+		"patchStripeAccount": "Esta API se utiliza para actualizar la cuenta en línea",
+		"postStripeAccount": "Esta API se utiliza para crear una cuenta en línea",
+		"deleteExternalAccount": "Esta API se utiliza para eliminar la cuenta bancaria de la cuenta en línea",
+		"patchExternalAccount": "Esta API se utiliza para actualizar la cuenta bancaria de la cuenta en línea",
+		"postExternalAccount": "Esta API se utiliza para agregar una cuenta bancaria en la cuenta en línea",
+		"getStripeAccountAdmin": "Esta API se utiliza para obtener detalles de la cuenta en línea",
+		"patchStripeAccountAdmin": "Esta API se utiliza para actualizar la cuenta en línea",
+		"postStripeAccountAdmin": "Esta API se utiliza para crear una cuenta en línea",
+		"deleteExternalAccountAdmin": "Esta API se utiliza para eliminar la cuenta bancaria de la cuenta en línea",
+		"patchExternalAccountAdmin": "Esta API se utiliza para actualizar la cuenta bancaria de la cuenta en línea",
+		"postExternalAccountAdmin": "Esta API se utiliza para agregar una cuenta bancaria en la cuenta en línea",
+		"deleteSubscribe": "Esta API se utiliza para eliminar una suscripción",
+		"getSubscribe": "Esta API se utiliza para obtener una suscripción",
+		"patchSubscribe": "Esta API se utiliza para actualizar la suscripción",
+		"postSubscribe": "Esta API se utiliza para crear una suscripción",
+		"payoff": "Esta API se utiliza para pagar al usuario del administrador"
+	},
+	"cognitoTokenGet": {
+		"200": {
+			"message": "éxito",
+			"description": "El usuario obtendrá el clave incognito"
+		},
+		"500": {
+			"message": "Error interno del servidor de clave incógnito del api",
+			"description": "Error interno del servidor"
+		},
+		"description": "Esta api se usa para obtener la clave de aws incognito, el usuario obtendrá la clave y la clave de identidad que se usarán para cargar la imagen en el depósito s3",
+		"notes": "Esta API devuelve el ID de identidad y clave. El tiempo de vencimiento de la clave es de 15 minutos, una vez que una clave caduca, debes volver a llamar a la misma API para obtener una nueva clave",
+		"responseDescription": {
+			"IdentityId": "El ID de identificación es un ID único para cada usuario. Ejemplo: ap-south-1: 73167401-95d8-4981-a76e-eafeed2d5000",
+			"Token": "la clave es de caducidad cada 15 min ejemplo: eyJraWQiOiJhcC1zb3V0aC0xMSIsInR5cCI6IkpXUyIsImFsZyI6IlJTNTEyIn0.eyJzdWIiOiJhcC1zb3V0aC0xOjczMTY3NDAxLTk1ZDgtNDk4MS1hNzZlLWVhZmVlZDJkNTAwMCIsImF1ZCI6ImFwLXNvdXRoLTE6N2I0YWM1NGYtODBmZS00Y2FjLWE3NmEtODlmYjNlYzgxNzUxIiwiYW1yIjpbImF1dGhlbnRpY2F0ZWQiLCJzZXJ2aWNlZ2VuaWUuM2VtYmVkIiwic2VydmljZWdlbmllLjNlbWJlZDphcC1zb3V0aC0xOjdiNGFjNTRmLTgwZmUtNGNhYy1hNzZhLTg5ZmIzZWM4MTc1MTptYWhlbmRyYSB2YWdoYW5pIl0sImlzcyI6Imh0dHBzOi8vY29nbml0by1pZGVudGl0eS5hbWF6b25hd3MuY29tIiwiZXhwIjoxNTgwMzgyNDY3LCJpYXQiOjE1ODAzODIzNDd9.RTAlTUUBvtG13iRfxYUZMTNwUqb-IgA8Pknodp9SRVZwLCP1pMxLlr_20FCpZfZWauZMWBsr12RhRc7mLXWS0plwdT7c7Tkk7iQl6GPusT7E0-3omnuPUJkkTl0cIRdNeiWR1OWN3DKQxIdWCAuUcL6SD7Ivw8NTzEvwIAz7DzqPd-iLA5G2xl6SSmM0rsJxo2ncpMc5aj1pg2HzXlG3_ySbr1zkbcZGM3NsfVdPIJhRwvAkCk8qy4Z4uuXZaHHDdtdmeO8KBL_KHU1Z0AkdXiGUka0PjHoy21Cw0IFpadq4lcFHGVA9nmCa7De89WO8IaV70FE9qQ6s8Xxi1VyajA",
+			"bucket": "Ejemplo de nombre de bucket: servicegenie",
+			"region": "Ejemplo de región de depósito: ap-south-1"
+		}
+	},
+	"imageUploadPost": {
+		"200": {
+			"message": "éxito",
+			"description": "El usuario obtendrá la clave de manera incógnita"
+		},
+		"500": {
+			"message": "Error interno del servidor de carga de imágenes",
+			"description": "Error interno del servidor"
+		},
+		"description": "Esta api se usa para cargar la imagen s3 o el servidor",
+		"notes": "Esta API devuelve la URL de la imagen cargada.",
+		"payload": {
+			"uploadTo": "Subir foto 1: Aws-s3 2: ejemplo de servidor: 1",
+			"folder": "ejemplo de nombre de carpeta: cliente",
+			"file": "ejemplo de datos de varias partes de la foto:",
+			"fileName": "Nombre de archivo usado para cargar con el mismo nombre para cargar si está vacío, luego por marca de tiempo defualt de lo contrario: 1580901123540"
+		},
+		"responseDescription": {
+			"imageUrl": "ejemplo de URL imágenes cargado: https://servicegenie.s3.ap-south-1.amazonaws.com/IMG_1580386465.png"
+		}
+	},
+	"imageUploadDelete": {
+		"200": {
+			"message": "éxito",
+			"description": "Imagen eliminada correctamente"
+		},
+		"500": {
+			"message": "Error interno del servidor de eliminación de carga de imágenes api",
+			"description": "Error interno del servidor"
+		},
+		"description": "Este api se utiliza para eliminar la imagen s3 o el servidor",
+		"notes": "Esta API para eliminar la URL de la imagen",
+		"payload": {
+			"uploadTo": "Eliminar foto 1: Aws-s3 2: ejemplo de servidor: 1",
+			"fileUrl": "URL del archivo para eliminar la imagen"
+		},
+		"responseDescription": {
+			"imageUrl": "ejemplo de URL imágenes cargado: https://servicegenie.s3.ap-south-1.amazonaws.com/IMG_1580386465.png"
+		}
+	},
+	"patchordernau": {
+		"fields": {
+			"orderId": "Matriz de ID de pedido de producto.",
+			"status": "estado para actualizar 2-Aceptado (deseleccionar, quitar), 3-quitar, 7-elegir"
+		},
+		"response": {
+			"200": "Éxito",
+			"403": "Estado no válido",
+			"404": "Pedido no encontrado",
+			"500": "No responde"
+		},
+		"responseDescription": {
+			"200": "Respuesta satisfactoria cuando el estado se actualiza correctamente",
+			"403": "Cuando el estado en orden ya está actualizado.",
+			"404": "Cuando no se encuentra el pedido en la base de datos"
+		},
+		"description": "API para el pedido de parches Nau",
+		"notes": "API de orden de parche de Nau"
+	},
+	"managerlocation": {
+		"description": "Esta API se utiliza para actualizar la ubicación del administrador en la que el administrador está en línea",
+		"notes": "ubicación de actualización del administrador"
+	},
+	"orderReminder": {
+		"fields": {
+			"orderId": "ID de pedido maestro activo cuando el usuario desea crear un recordatorio",
+			"days": "Día seleccionado por el usuario para el recordatorio, p. ej. DOM, LUN, MAR, MIÉ, JUE, VIE, SÁB",
+			"daysSelected": "Cantidad de días seleccionados por el usuario"
+		},
+		"response": {
+			"200": "Recordatorio creado correctamente",
+			"403": "No se puede crear un recordatorio para pedidos anteriores",
+			"404": "Pedido no encontrado"
+		},
+		"responseDescription": {
+			"200": "Cuando el recordatorio se envía correctamente",
+			"403": "cuando se ha completado el pedido.",
+			"404": "ID de pedido incorrecto"
+		},
+		"description": "API para crear recordatorios para pedidos activos.",
+		"notes": "la identificación de la orden será la identificación de la orden maestra"
+	},
+	"walletRecharge": {
+		"fields": {
+			"onlinePaymentMethod": "Tipo de pago utilizado para pagar Tarjeta de 1 , 2-RazorPay, 3-CashFree, 4-Compra en la aplicación.",
+			"cardId": "ID de tarjeta que se selecciona para el cargo",
+			"currency": "Moneda como INR, USD",
+			"amount": "Importe a cargar en la tarjeta y añadir a la cartera",
+			"deviceSessionId": "Identifier of the device generated by the antifraud tool."
+		},
+		"response": {
+			"200": "Monedero recargado"
+		},
+		"responseDescription": {
+			"200": "Cuando se complete la recarga de la billetera"
+		},
+		"description": "Api para recargar billetera",
+		"notes": "La identificación de la tarjeta será de banda",
+		"addCredit": "Monedero recargado con %s"
+	},
+	"orderPatchReattempt": {
+		"description": "API para reintentar el pedido de entrega",
+		"notes": "- -",
+		"fields": {
+			"storeOrderId": "ID de pedido de tienda para reintentar",
+			"packageId": "ID de paquete para reintentar",
+			"jobId": "ID de trabajo para reintentar",
+			"reason": "motivo de nuevo intento de entrega"
+		},
+		"response": {
+			"200": "Reintento de pedido iniciado.",
+			"403": "No se puede volver a intentar, se ha alcanzado el reintento máximo de entrega.",
+			"404": "Pedido no encontrado",
+			"410": "No se puede reintentar, no se permite reintentar"
+		},
+		"responseDescription": {
+			"200": "Correcto",
+			"403": "No permitido",
+			"404": "No encontrado",
+			"405": "No permitido",
+			"410": "No permitido"
+		}
+	},
+	"orderPatchReturn": {
+		"description": "API para pedido de devolución",
+		"notes": "- -",
+		"fields": {
+			"returnType": "tipo de retorno 1-completo, 2-parcial.",
+			"storeOrderId": "ID de pedido de tienda para devolución",
+			"packageId": "ID de paquete para devolución",
+			"productOrderId": "ID de pedido de producto para devolución en caso de devolución parcial",
+			"quantity": "ID de pedido de producto para devolución en caso de devolución parcial",
+			"reason": "motivo de la devolución del artículo"
+		},
+		"response": {
+			"200": "Solicitud de devolución iniciada",
+			"403": "El ID de pedido del producto proporcionado no está asociado con el paquete",
+			"404": "Pedido no encontrado",
+			"405": "Cantidad no válida",
+			"410": "No se puede devolver, no se permite la devolución del producto"
+		},
+		"responseDescription": {
+			"200": "Correcto",
+			"403": "No permitido",
+			"404": "No encontrado",
+			"405": "No permitido",
+			"410": "No permitido"
+		}
+	},
+	"postorder": {
+		"description": "API para realizar un nuevo pedido",
+		"notes": "- -",
+		"fields": {
+			"cartId": "Id del carrito que desea pagar.",
+			"deviceSessionId": "Identifier of the device generated by the antifraud tool.",
+			"paymentType": "Tipo de pago utilizado para el pago 1-Pago en línea, 2-Efectivo.",
+			"onlinePaymentMethod": "Tipo de pago utilizado para pagar 0-Efectivo, Tarjeta de 1 , 2-RazorPay, 3-CashFree, 4-Compra en la aplicación.",
+			"cardId": "ID de tarjeta si el tipo de pago es 1.",
+			"payByWallet": "Si realiza el pago usando billetera (verdadero / falso).",
+			"promoId": "ID de promoción del cupón aplicado",
+			"coupon": "Código de cupón utilizado en el pago.",
+			"discount": "Descuento aplicado por cupón",
+			"latitude": "Ubicación desde donde se realiza el pedido",
+			"longitude": "Ubicación desde donde se realiza el pedido.",
+			"ipAddress": "Dirección IP a través de la cual se realiza el pedido",
+			"extraNote": "Notas adicionales para el pedido",
+			"userId": "El ID de usuario solo se aplica al despachador.",
+			"storeType": "Tipo de tienda 1-comida, 2-abarrotes, 3-moda, 4-paquetes de envío, 5-lavandería, 6-farmacia, 7-e-commerceAffiliate, 8-e-CommercePartner, 9-orderAnything, 10-recompra ",
+			"requestedTimePickup": "Hora de recogida solicitada para el pedido",
+			"requestedTime": "Hora de entrega solicitada para el pedido.",
+			"pickup": {
+				"object": "Datos de entrega",
+				"storeId": "ID de la tienda para la que se selecciona la recogida. (0-controlador de la aplicación / tienda central)",
+				"type": "tipo de recogida, 1-hora, 2-más tarde por hora, 3- más tarde por hora.",
+				"requestedTime": "Hora de recogida solicitada para el pedido",
+				"slotId": "ID seleccionada para recogida"
+			},
+			"delivery": {
+				"object": "Datos de entrega",
+				"storeId": "ID de la tienda para la que se selecciona la ranura para la entrega. (0-controlador de la aplicación / tienda central)",
+				"productId": "ID de producto para el que se selecciona el espacio para la entrega.",
+				"type": "tipo de entrega, 1-ahora, 2-más tarde por hora, 3- más tarde por hora.",
+				"requestedTime": "Hora de entrega solicitada para el pedido.",
+				"slotId": "ID seleccionada para la entrega"
+			},
+			"orderImage": "Imagen para pedido, por ejemplo. Receta para pedido de farmacia.",
+			"orderType": "Tipo de pedido 1-Recogida, 2-Entrega, 3-Cupón, 4- Pedido de devolución 5-VideoShoutout, 6-VideoCall.",
+			"customerPaymentType": "Tipo de pago del cliente 1-Prepago, 2- Contra reembolso",
+			"addressId": "ID de dirección para la dirección de entrega",
+			"billingAddressId": "ID de dirección para la dirección de facturación",
+			"storeId": "ID de Tienda que realiza el pedido (nau).",
+			"orderId": "ID de pedido maestro si el pedido se realizó correctamente.",
+			"guestEmail": "dirección de correo electrónico del invitado para el pago",
+			"guestMobile": "Número de móvil de invitado para pagar",
+			"guestCountryCode": "Conseguir Código de País para número de móvil",
+			"contactLessDelivery": "Contactar menos entregas",
+			"contactLessDeliveryReason": "Contacto menos motivos de entrega",
+			"tip": "Sugerencia para el conductor",
+			"pickupSlotId": "ID de Recogida",
+			"deliverySlotId": "ID de entrega",
+			"numberOfBags": "Numero de paquetes",
+			"deliveryFeePayBy": "1 remitente, 2 destinatarios",
+			"productId": "ID de producto",
+			"payByRewardWallet": "Si realiza el pago con billetera booleano (verdadero / falso).",
+			"inAppPlanId": "ID del plan de compra dentro de la aplicación de pedido virtual",
+			"pGTxnId": "ID de transacción del plan de compra en la aplicación de pedido virtual",
+			"shopifyOrderId": "ID de pedido de compra",
+			"isMultiCart": "1- carrito individual 2- carrito múltiple",
+			"routeId": "No. ruta",
+			"magentoOrderId": "No. orden magento",
+			"magentoUserToken": "Token usuario magento",
+			"recepientId": "recepient user Id",
+			"numberOfTrucks": "number Of Trucks",
+			"isCard": "card for qrcode payment",
+			"geoSparkTripId": "GeoSpark TripId",
+			"guestName": "postorder.fields.guestName"
+		},
+		"response": {
+			"200": "Pedido realizado correctamente",
+			"403": "Complete su pedido activo antes de enviar un nuevo pedido",
+			"404": {
+				"cart": "Carrito no encontrado",
+				"slot": "Slot Not Found.",
+				"address": {
+					"delivery": "Dirección de entrega no encontrada",
+					"billing": "Dirección de facturación no encontrada"
+				}
+			},
+			"405": "Las cuadros están llenos",
+			"407": "Invalid slot selected.",
+			"409": "Algunos productos están agotados, revise su carrito.",
+			"410": "The following stores are closed %s please remove items from these store and order again",
+			"418": "El perfil de este usuario aún no ha sido aprobado, comuníquese con nuestro servicio de atención al cliente para realizar más consultas",
+			"419": "Código de estado no válido de las API de publicación de pedidos de Shopify",
+			"420": "Invalid Status Code from Magento Order Post Apis",
+			"410T": "Store is closed, opens next At %s",
+			"410TM": "Store is closed, next opens tomorrow At %s"
+		},
+		"responseDescription": {
+			"200": "Correcto",
+			"403": "No permitido",
+			"404": "No encontrado",
+			"405": "No permitido",
+			"407": "Not Allowed",
+			"409": "Algunos productos están agotados, revise su carrito.",
+			"410": "The following stores are closed %s please remove items from these store and order again",
+			"418": "No permitido",
+			"419": "Código de estado no válido de las API de publicación de pedidos de Shopify",
+			"420": "Invalid Status Code from Magento Order Post Apis"
+		}
+	},
+	"patchPayment": {
+		"description": "API para cambiar el estado de pago",
+		"notes": "- -",
+		"response": {
+			"200": "Pedido actualizado correctamente",
+			"404": "Pedido no encontrado"
+		},
+		"responseDescription": {
+			"200": "Correcto",
+			"404": "No encontrado"
+		}
+	},
+	"patchOrderPick": {
+		"fields": {
+			"productOrder": {
+				"object": "Datos de pedido de producto",
+				"orderId": "ID de pedido de producto para elegir producto",
+				"quantity": "se recoge la cantidad de producto"
+			},
+			"productImage": "Imagen del producto en caso de selección forzada.",
+			"latitude": "Ubicación desde donde se realiza el pedido",
+			"longitude": "Ubicación desde donde se realiza el pedido.",
+			"orderId": "No. Orden",
+			"quantity": "Cantidad",
+			"barCodeData": {
+				"pickType": "pick type 1-scanned, 2-manual, 3-force pick",
+				"sku": "sku obtenido del código de barras",
+				"manufacturingDate": "fecha de fabricación obtenida del código de barras",
+				"batchid": "ID de lote obtenido del código de barras",
+				"object": "Datos de código de barras para elementos de recolección"
+			}
+		},
+		"response": {
+			"200": "Correcto",
+			"403": "Estado no válido",
+			"404": "No encontrado."
+		},
+		"responseDescription": {
+			"200": "Correcto",
+			"403": "No permitido",
+			"404": "No encontrado",
+			"405": "No permitido"
+		},
+		"description": "Api para recogida.",
+		"notes": "seleccionar pedido por ID de pedido de producto"
+	},
+	"patchOrderPicking": {
+		"fields": {
+			"batchOrder": "Asignar a lote u orden de la tienda",
+			"orderId": "ID orden de tienda o ID de lote",
+			"orders": "conjunto de pedidos",
+			"labelUrl": "URL de etiqueta para etiquetas de los paquetes"
+		},
+		"response": {
+			"200": "Correcto",
+			"403": "Estado no válido",
+			"404": "No encontrado.",
+			"405": "No se le permite comenzar a hacer recogida para el pedido proporcionado",
+			"409": "No se puede comenzar a recolectar para el pedido, ya ha comenzado a recolectar para otro pedido"
+		},
+		"responseDescription": {
+			"200": "Correcto",
+			"403": "No permitido",
+			"404": "No encontrado",
+			"405": "No permitido",
+			"409": "No permitido"
+		},
+		"description": "Api para comenzar a seleccionar pedidos.",
+		"notes": "empezar a recoger el pedido por ID de orden de tienda o ID de lote"
+	},
+	"patchAssignPicker": {
+		"fields": {
+			"batchOrder": "Asignar a lote u Orden de Tienda",
+			"orderId": "ID orden de tienda o ID de lote para asignar selector",
+			"pickerType": "Tipo de selector 1-Gestionarr, 2-Conductor",
+			"pickerId": "Id del selector"
+		},
+		"response": {
+			"200": "Correcto",
+			"403": "Estado no válido",
+			"404": "No encontrado.",
+			"405": "El controlador de tipo selector no está permitido con la asignación por lotes"
+		},
+		"responseDescription": {
+			"200": "Correcto",
+			"403": "No permitido",
+			"404": "No encontrado",
+			"405": "No permitido"
+		},
+		"description": "Api para el selector de asignaciones",
+		"notes": "asignar selector para cada pedido de tienda"
+	},
+	"patchAssignComptroller": {
+		"fields": {
+			"batchOrder": "Asignar al lote o al pedido de la tienda",
+			"orderId": "almacenar Id. de pedido o Id. de lote para asignar el controlador",
+			"comptrollerId": "Id del administrador"
+		},
+		"response": {
+			"200": "Correcto",
+			"403": "Estado no válido",
+			"404": "No encontrado."
+		},
+		"responseDescription": {
+			"200": "Correcto",
+			"403": "No permitido",
+			"404": "No encontrado"
+		},
+		"description": "Api para asignar contralor.",
+		"notes": "Asignar contralor por orden de tienda o por lote"
+	},
+	"postBagScan": {
+		"fields": {
+			"batchOrder": "escanear bolsa para lote u orden de entrega.",
+			"orderId": "Id. de paquete o Id. de lote para la bolsa de escaneo.",
+			"bagId": "ID de la bolsa que se ingresa manualmente o se escanea"
+		},
+		"response": {
+			"200": "Correcto",
+			"403": "No permitido",
+			"404": "No encontrado"
+		},
+		"responseDescription": {
+			"200": "Correcto",
+			"403": "La bolsa escaneada no está vinculada con el pedido proporcionado. Verifique",
+			"404": "Pedido no encontrado"
+		},
+		"description": "Api para escanear maletas antes de enviarlas",
+		"notes": "Esta api es para el flujo del controlador"
+	},
+	"patchAssignChecker": {
+		"fields": {
+			"batchOrder": "Asignar al lote o al pedido de la tienda",
+			"orderId": "almacenar Id. de pedido o Id. de lote para el verificador de asignación",
+			"checkerId": "Id del administrador"
+		},
+		"response": {
+			"200": "Correcto",
+			"403": "Estado no válido",
+			"404": "No encontrado."
+		},
+		"responseDescription": {
+			"200": "Correcto",
+			"403": "No permitido",
+			"404": "No encontrado"
+		},
+		"description": "Api para el verificador de asignación.",
+		"notes": "asignar verificador por pedido de tienda o por lote"
+	},
+	"patchOrderChecking": {
+		"fields": {
+			"batchOrder": "Empiece a comprobar si hay lote o no",
+			"orderId": "almacenar Id. de pedido o Id. de lote"
+		},
+		"response": {
+			"200": "Correcto",
+			"403": "Estado no válido",
+			"404": "No encontrado."
+		},
+		"responseDescription": {
+			"200": "Correcto",
+			"403": "No permitido",
+			"404": "No encontrado"
+		},
+		"description": "Api para comenzar a verificar el pedido",
+		"notes": "comienza a verificar el pedido por ID de pedido de la tienda o ID de lote"
+	},
+	"patchAlertOrder": {
+		"fields": {
+			"storeOrderId": "ID de pedido de la tienda",
+			"roleId": "4 selectores, 5 verificadores, 6 controladores"
+		},
+		"response": {
+			"200": "Éxito",
+			"404": "Pedido no encontrado"
+		},
+		"responseDescription": {
+			"200": "Éxito",
+			"404": "Pedido no encontrado"
+		},
+		"description": "Enviar alerta para notificación de pedido",
+		"notes": "Enviar alerta para notificación de pedido"
+	},
+	"patchUnAssignPicker": {
+		"fields": {
+			"orderId": "ID de pedido de tienda para asignar recolector"
+		},
+		"response": {
+			"200": "Correcto",
+			"403": "Estado no válido",
+			"404": "No encontrado."
+		},
+		"responseDescription": {
+			"200": "Correcto",
+			"403": "No permitido",
+			"404": "No encontrado"
+		},
+		"description": "Api para anular la asignación del recolector.",
+		"notes": "anular la asignación del recolector para cada pedido de tienda"
+	},
+	"patchOrderPicked": {
+		"fields": {
+			"type": "Tipo de pedido que desea enviar confirmación",
+			"orderId": "ID de pedido de la tienda o ID de pedido maestro para la selección completa de todos los productos",
+			"latitude": "Ubicación desde donde se realiza el pedido",
+			"longitude": "Ubicación desde donde realizar el pedido"
+		},
+		"response": {
+			"200": "Correcto",
+			"403": "Estado no válido",
+			"404": "No encontrado."
+		},
+		"responseDescription": {
+			"200": "Correcto",
+			"403": "No permitido",
+			"404": "No encontrado",
+			"405": "No permitido"
+		},
+		"description": "Api para la selección completa del pedido en tienda",
+		"notes": "selección completa de pedidos por ID de pedido de tienda o ID de pedido maestro"
+	},
+	"getOrderRoute": {
+		"fields": {
+			"limit": "limitar registros en respuesta",
+			"skip": "tomar registros después de omitir",
+			"status": "1- Entrante, 2- En Preparación, 3- En Entrega, 4- Completado, 5- Cancelado",
+			"storeType": "0-todo, 1-comida, 2-TiendaComestibles, 3-moda, 4-EnviarPaquetes, 5-lavanderia, 6-farmacia, 7-AfiliadoComercioElectrónico, 8-SocioComercioElectrónico, 9-EnvíoPersonalizados, 10 -carne, 11-licor ",
+			"storeCategoryId": "ID de categoría de tienda para registros de filtro",
+			"bookingType": "0- Todo, 1- Lo antes posible, 2- Programar por hora, 3-Programar por ranura, 23- Programado",
+			"orderTime": "desde la fecha hasta la fecha (marca de tiempo separada por -) p. ej. (1578313576-1578313576)",
+			"search": "buscar con texto en el nombre del cliente, número, correo electrónico, ID de pedido central",
+			"count": "registros totales con los filtros proporcionados",
+			"data": "registros encontrados con los filtros proporcionados"
+		},
+		"response": {
+			"200": "Correcto",
+			"403": "No tiene permiso para llamar a esta API"
+		},
+		"responseDescription": {
+			"200": "Correcto",
+			"403": "No permitido"
+		},
+		"description": "Obtener orden de ruta por DC.",
+		"notes": "API es para el administrador de DC"
+	},
+	"getOrderCountRoute": {
+		"fields": {
+			"status": "1- Entrante, 2- En Preparación, 3- En Entrega, 4- Completado, 5- Cancelado",
+			"storeType": "0-todo, 1-comida, 2-TiendaComestibles, 3-moda, 4-EnviarPaquetes, 5-lavanderia, 6-farmacia, 7-AfiliadoComercioElectrónico, 8-SocioComercioElectrónico, 9-EnvíoPersonalizados, 10 -carne, 11-licor ",
+			"storeCategoryId": "ID de categoría de tienda para registros de filtro",
+			"bookingType": "0- Todo, 1- Lo antes posible, 2- Programar por hora, 3-Programar por ranura, 23- Programado",
+			"orderTime": "desde la fecha hasta la fecha (marca de tiempo separada por -) p. ej. (1578313576-1578313576)",
+			"data": "matriz de recuento con todos los estados"
+		},
+		"response": {
+			"200": "Correcto",
+			"403": "No tiene permiso para llamar a esta API"
+		},
+		"responseDescription": {
+			"200": "Correcto",
+			"403": "No permitido"
+		},
+		"description": "Obtener orden de ruta por DC.",
+		"notes": "API es para el administrador de DC"
+	},
+	"patchOrderRoute": {
+		"fields": {
+			"orderId": "ID de pedido de DC",
+			"status": "Estatus para actualizar para el pedido de CC 4-En-entrega, 5-Completado (en el caso del último salto)",
+			"orderFrom": "orderFrom 1 for delivery webhook or 0 for direct admin"
+		},
+		"response": {
+			"200": "Correcto",
+			"403": "No permitido",
+			"404": "No encontrado"
+		},
+		"responseDescription": {
+			"200": "Correcto",
+			"403": "No tiene permiso para llamar a esta API",
+			"404": "Estado no válido o pedido no encontrado"
+		},
+		"description": "api para el estado de actualización de listo para recogida.",
+		"notes": "api es solo para DC para el flujo de ruta"
+	},
+	"postOrderRouteReceipt": {
+		"fields": {
+			"orderId": "ID de pedido de DC",
+			"trackingId": "ID de seguimiento ingresado por el usuario"
+		},
+		"response": {
+			"200": "Correcto",
+			"403": "No permitido",
+			"404": "No encontrado",
+			"405": "Se ha pasado un ID de seguimiento no válido"
+		},
+		"responseDescription": {
+			"200": "Correcto",
+			"403": "No tiene permiso para llamar a esta API",
+			"404": "Estado no válido o pedido no encontrado",
+			"405": "ID de seguimiento no válido"
+		},
+		"description": "api para confirmar la recepción del pedido entrante.",
+		"notes": "api es solo para DC para el flujo de ruta"
+	},
+	"postOrderRoute": {
+		"fields": {
+			"orderId": "ID de pedido de DC",
+			"status": "estado de QC 31-Pasado, 32-Fallido",
+			"autoMode": "el modo de envío es automático o manual, si es manual, pase el socio de envío y los detalles de seguimiento",
+			"shippingPartnerId": "para el ID de socio de envío de envío manual",
+			"shippingPartnerName": "para el nombre del socio de envío de envío manual",
+			"trackingId": "para ID de seguimiento de envío manual",
+			"trackingUrl": "para URL de seguimiento de envío manual",
+			"shippingLabel": "Shipping Label image url",
+			"estimateWeight": "weight for shipment",
+			"estimateWeightUnit": "weight unit for shipment"
+		},
+		"response": {
+			"200": "Exitoso",
+			"403": "No permitido",
+			"404": "No encontrado"
+		},
+		"responseDescription": {
+			"200": "Exitoso",
+			"403": "Usuario no permitido",
+			"404": "Estatus invalid u orden no encontrada"
+		},
+		"description": "Api para actualizar estatus",
+		"notes": "Api solo para actualizar flujos de rutas."
+	},
+	"schedule": {
+		"get": {
+			"description": "Api para obtener detalles de programación",
+			"notes": "Esta API permite al usuario obtener detalles de la programación"
+		},
+		"slotGet": {
+			"description": "Api para obtener detalles de ranuras programadas",
+			"notes": "Esta API permite al usuario programar detalles de ranuras"
+		},
+		"post": {
+			"description": "Api para agregar detalles de programación",
+			"notes": "Esta API permite al usuario agregar detalles de programación"
+		},
+		"put": {
+			"description": "Api para cambiar el estado de los detalles del programa",
+			"notes": "Esta API permite al usuario cambiar el estado de los detalles del programa"
+		},
+		"delete": {
+			"description": "Api para eliminar detalles de programación",
+			"notes": "Esta API permite al usuario eliminar los detalles del programa"
+		},
+		"slotDelete": {
+			"description": "Api para eliminar detalles de una ranura en particular.",
+			"notes": "Esta API permite al usuario eliminar Detalles de una ranura en particular"
+		},
+		"response": {
+			"addNew": {
+				"200": "Agregado exitosamente.",
+				"409": "Ya ha creado un programa para el período de tiempo seleccionado"
+			},
+			"delete": {
+				"200": "Eliminar programa con éxito.",
+				"410": "no se puede eliminar esta programación"
+			},
+			"get": {
+				"200": "Horarios encontrados",
+				"404": "Horarios no encontrados"
+			},
+			"slotBook": {
+				"404": "Espacio no encontrado",
+				"409": "Espacio ya reservado"
+			},
+			"slotDelete": {
+				"200": "Espacio eliminado correctamente",
+				"404": "Espacio no encontrado",
+				"410": "No se puede eliminar este espacio, la reserva existe en este espacio"
+			}
+		}
+	},
+	"patchOrderConfirm": {
+		"fields": {
+			"type": "Tipo de orden para confirmar.",
+			"orderId": "No. de pedido de producto para seleccionar producto",
+			"confirm": "confirmar o no confirmar.",
+			"latitude": "Ubicación desde donde realizar el pedido.",
+			"longitude": "Ubicación desde donde realizar el pedido."
+		},
+		"response": {
+			"200": "Exitoso",
+			"403": "Estatus inválido.",
+			"404": "No encontrado."
+		},
+		"responseDescription": {
+			"200": "Exitoso",
+			"403": "No permitido",
+			"404": "No encontrado",
+			"405": "No permitido"
+		},
+		"description": "Api para confirmar.",
+		"notes": "confirmar pedido por No. De pedido del producto."
+	},
+	"postGetConfirmation": {
+		"fields": {
+			"type": "Tipo de pedido que desea enviar confirmación",
+			"orderId": "No. de orden de orden que desea enviar confirmación al cliente",
+			"reason": "razon para obtener confirmación"
+		},
+		"response": {
+			"200": "Exitoso",
+			"403": "Estatus inválido.",
+			"404": "No encontrado."
+		},
+		"responseDescription": {
+			"200": "Exitoso",
+			"403": "No permitido",
+			"404": "No encontrado"
+		},
+		"description": "Api para enviar confirmación al cliente.",
+		"notes": "La confirmación de la orden será por tipo de orden y la identificación de la orden enviada en la carga útil"
+	},
+	"patchOrderReview": {
+		"fields": {
+			"orderId": "No. pedido de producto para reanudar el pedido"
+		},
+		"response": {
+			"200": "Correcto",
+			"403": "No permitido",
+			"404": "No encontrado"
+		},
+		"responseDescription": {
+			"200": "Correcto",
+			"403": "No tiene permiso para llamar a esta API",
+			"404": "Estado no válido o pedido no encontrado"
+		},
+		"description": "api para el estado de actualización de un pedido de control de calidad.",
+		"notes": "api es solo para DC para el flujo de ruta"
+	},
+	"postSelfPickupStatus": {
+		"fields": {
+			"orderId": "No. Orden para actualizar el estado",
+			"receiverName": "nombre del receptor",
+			"receiverCountryCode": "código de país",
+			"receiverMobile": "número de móvil",
+			"carType": "tipo de coche",
+			"carColor": "color del coche",
+			"makeModel": "marca y modelo",
+			"platNumber": "número de placa"
+		},
+		"response": {
+			"200": "Correcto",
+			"403": "Su pedido aún no está listo para ser recogido, comuníquese con la tienda en caso de cualquier consulta a través de la opción de llamada o chatee con la tienda",
+			"404": "Pedido no encontrado"
+		},
+		"responseDescription": {
+			"200": "Correcto",
+			"403": "No permitido",
+			"404": "No encontrado"
+		},
+		"description": "Api para la actualización del estado del pedido de recolección automática por parte del cliente.",
+		"notes": "el cliente actualizará este estado cuando el cliente esté en la tienda"
+	},
+	"postOrderResubmit": {
+		"fields": {
+			"type": "Tipo de pedido que desea volver a enviar",
+			"orderId": "ID de pedido para reanudar el pedido",
+			"orderImage": "Imagen para pedido, por ejemplo. Receta para pedido de farmacia.",
+			"extraNote": "Notas adicionales para el pedido"
+		},
+		"response": {
+			"200": "Correcto",
+			"403": "Estado no válido",
+			"404": "No encontrado."
+		},
+		"responseDescription": {
+			"200": "Correcto",
+			"403": "No permitido",
+			"404": "No encontrado"
+		},
+		"description": "Api para reenviar el pedido mediante la actualización de las imágenes del pedido.",
+		"notes": "el pedido de reenvío será por tipo de pedido y el ID de pedido enviado en la carga útil"
+	},
+	"patchOrderReceipt": {
+		"fields": {
+			"batchOrder": "Recibo de lote u Orden de tienda",
+			"orderId": "ID de pedido de tienda para actualizar el recibo",
+			"imageUrl": "Imagen de recibo",
+			"latitude": "Ubicación desde donde realizar el pedido",
+			"longitude": "Ubicación desde donde realizar el pedido"
+		},
+		"response": {
+			"200": "Correcto",
+			"403": "Estado no válido",
+			"404": "No encontrado."
+		},
+		"responseDescription": {
+			"200": "Correcto",
+			"403": "No permitido",
+			"404": "No encontrado"
+		},
+		"description": "Api para el recibo de carga del pedido.",
+		"notes": "el recibo de carga se realizará mediante el ID de pedido de la tienda"
+	},
+	"getOrderReceipt": {
+		"fields": {
+			"orderId": "ID de pedido de tienda para actualizar el recibo",
+			"receciptURL": "Imágenes para recibo"
+		},
+		"response": {
+			"200": "Correcto",
+			"404": "No encontrado."
+		},
+		"responseDescription": {
+			"200": "Correcto",
+			"404": "No encontrado"
+		},
+		"description": "Api para obtener el recibo subido del pedido",
+		"notes": "los recibos cargados serán por ID de pedido de tienda"
+	},
+	"patchOrderMissing": {
+		"fields": {
+			"orderId": "ID de pedido de producto deseado para el producto faltante",
+			"quantity": "cantidad para marcar como faltante"
+		},
+		"response": {
+			"200": "Correcto",
+			"403": "No se puede actualizar el producto porque falta, el producto está en un estado diferente",
+			"404": "Pedido no encontrado"
+		},
+		"responseDescription": {
+			"200": "éxito",
+			"403": "No permitido",
+			"404": "No encontrado"
+		},
+		"description": "API para marcar el producto como faltante en la etapa de pago",
+		"notes": "Se llamará a la API cuando se verifiquen los productos del pedido"
+	},
+	"patchOrderGenerateLable": {
+		"fields": {
+			"batchOrder": "marca de orden de lote para nau",
+			"orderId": "ID de pedido de tienda para actualizar el recibo",
+			"bags": "Numero de bolsas para generar la etiqueta.",
+			"latitude": "Ubicación desde donde realizar el pedido",
+			"longitude": "Ubicación desde donde se realiza el pedido.",
+			"shippingLabel": "URL de la etiqueta de envío generada",
+			"bagsArray": "Matriz de identificación de paquete y etiqueta",
+			"bagId": "ID de bolsa generado para bolsa",
+			"lable": "URL de la etiqueta de envío generada"
+		},
+		"response": {
+			"200": "Correcto",
+			"403": "Estado no válido",
+			"404": "No encontrado."
+		},
+		"responseDescription": {
+			"200": "Correcto",
+			"403": "No permitido",
+			"404": "No encontrado",
+			"405": "No permitido"
+		},
+		"description": "Api para generar etiquetas para cada bolsa.",
+		"notes": "La generación de etiquetas se realizará por ID de pedido de tienda"
+	},
+	"patchOrderGeneratePaymentCode": {
+		"fields": {
+			"orderId": "ID de pedido de la tienda para generar el código de pago",
+			"barCodeUrl": "URL de código de barras generada a partir de pago abierto",
+			"data": "objeto de datos"
+		},
+		"response": {
+			"200": "Éxito",
+			"403": "La URL ya generada o pago abierto no está habilitada.",
+			"404": "Pedido no encontrado"
+		},
+		"responseDescription": {
+			"200": "Éxito",
+			"403": "No permitido",
+			"404": "No encontrado"
+		},
+		"description": "APi para generar un código de pago para pago abierto por ID de pedido",
+		"notes": "la generación de códigos de pago es solo para pago abierto"
+	},
+	"storeType": {
+		"response": {
+			"200": "Éxito"
+		},
+		"responseDescription": {
+			"200": "Obtener lista de tipos de tienda"
+		},
+		"get": {
+			"description": "Api para obtener todas las tiendas Escriba administrador y despachador",
+			"notes": "Api para obtener todas las tiendas. Escriba administrador y despachador "
+		}
+	},
+	"storeFrontType": {
+		"response": {
+			"200": "Éxito"
+		},
+		"responseDescription": {
+			"200": "Obtener lista de tipos de tienda"
+		},
+		"get": {
+			"description": "Api para obtener todas las tiendas Front Escriba administrador y despachador",
+			"notes": "Api para obtener todo el frente de la tienda Escriba en administrador y despachador"
+		}
+	},
+	"providerPostVehicleDefault": {
+		"404": "Vehículo no encontrado",
+		"411": "El vehículo no está disponible",
+		"412": "No puede cambiar el tipo de vehículo si se encuentra actualmente en una reserva, complete sus reservas activas actuales para cambiar el tipo de vehículo"
+	},
+	"accountsError": {
+		"200": "Correo electrónico verificado correctamente.",
+		"404": "No se encontraron datos de usuario.",
+		"405": "El correo electrónico ya está verificado.",
+		"408": "Este vínculo ha caducado"
+	},
+	"email": {
+		"newSignUp": "¡Bienvenido a %s!",
+		"instituteNewSignUp": "Thank you registering on %s!",
+		"newContactRequest": "Solicitud de nuevo contacto",
+		"profileAccepted": "Se ha aceptado el perfil de %s.",
+		"walletRechargeSuccess": "Wallet Recharged !",
+		"walletRechargeFailed": "Wallet Not Recharged !",
+		"profileInstituteAccepted": "Local aceptado en %s.",
+		"profileRejected": "El perfil ha sido rechado.",
+		"profileInstituteRejected": "Local ha sido rechazado en %s!.",
+		"profileInstituteSuspended": "Your enterprise account is Suspended on %s.",
+		"activateSuspendAccountInstitutionProfile": "Your enterprise account is active again on %s.",
+		"profileBanned": "El perfil de %s ha sido prohibido.",
+		"profileSuspend": "El perfil de %s ha sido suspendido.",
+		"profileDeleted": "El perfil de %s ha sido eliminado",
+		"profileStoreAccepted": "Se ha aceptado el perfil de la tienda %s.",
+		"profileStoreRejected": "El perfil de la tienda %s ha sido rechazado.",
+		"profileStoreBanned": "El perfil de la tienda %s ha sido prohibido.",
+		"profileStoreSuspend": "El perfil de la tienda %s ha sido suspendido.",
+		"profileStoreDeleted": "El perfil de la tienda %s ha sido eliminado",
+		"profileOperatoreAccepted": "Se ha aceptado el perfil de operador %s.",
+		"profileOperatoreRejected": "El perfil de operador %s ha sido rechazado.",
+		"profileOperatoreBanned": "El perfil de operador %s ha sido prohibido.",
+		"profileOperatoreSuspend": "El perfil del operador %s ha sido suspendido.",
+		"profileOperatoreDeleted": "El perfil de operador %s ha sido eliminado",
+		"passwordReset": " %s reestablecer contraseña.",
+		"passwordResetButton": "Restablecer mi contraseña",
+		"addressChangeRequest": "Confirmar nuevo correo electrónico en %s",
+		"verifyButton": "Verifique su correo electrónico",
+		"deliveryThanks": "Su pedido %s ha sido entregado. ¡Gracias por usar %s!",
+		"manageOrders": "Administrar pedidos",
+		"dispatchThanks": "Su pedido %s ha sido enviado. ¡Gracias por usar %s!",
+		"comingThanks": "¡El producto está embalado y listo para su entrega!",
+		"trackOrderButton": "Siga su pedido aquí",
+		"driverAccepted": "Su perfil de conductor es aceptado en %s",
+		"driverRejected ": " Su perfil de conductor es rechazado en %s ",
+		"driverSuspended": "Su perfil de conductor está suspendido en %s",
+		"driverDeleted": "Su perfil de conductor se borró en %s",
+		"driverSigningUpThanks": "Gracias por registrarse como conductor en %s",
+		"roleManagerDetails": "Detalles de inicio de sesión para el administrador de roles en %s",
+		"sellerCancelledOrder": "Número de pedido: %s ha sido cancelado por el vendedor",
+		"sellerCancelledOrderFood": "El restaurante canceló la entrega.",
+		"customerCancelledOrder": "Número de pedido: %s ha sido cancelado por el cliente",
+		"cancelledOrder": "Ha cancelado el pedido no %s",
+		"cancelledOrderFood": "Ha cancelado su entrega.",
+		"msgCancelledOrder": " %s ha cancelado el pedido no %s con el motivo %s.",
+		"msgCancelledOrderUser": "Has cancelado el pedido no %s con el motivo %s.",
+		"msgCancelledOrderProduct": "Has cancelado un artículo de tu pedido no %s con el motivo %s.",
+		"msgRejected": " %s ha rechazado %s con motivo %s.",
+		"msgItemRemoved": "El artículo ha sido eliminado del pedido no %s.",
+		"msgItemRemovedReason": "El artículo ha sido eliminado del pedido no %s con motivo %s.",
+		"msgRejectedItems": " %s ha rechazado algunos artículos en su pedido no %s con motivo %s.",
+		"msgThanks": " %s ¡Gracias por usar %s!",
+		"msgReplacedProduct": "Se reemplazó un producto de su lista de compras, revíselo.",
+		"msgRecommendedItem": "Se ha recomendado un nuevo elemento, revíselo.",
+		"msgSubmittedOrder": "Su pedido %s ha sido enviado. ¡Gracias por usar %s!",
+		"msgReceivedOrder": "Nueva orden de compra recibida: %s. ¡Gracias por usar %s!",
+		"PrizePointsUnlocked": "Puntos de recompensa desbloqueados",
+		"PrizepointsExpired": "Puntos de recompensa caducados",
+		"PrizePointsAboutToExpire": "Puntos de recompensa a punto de vencer",
+		"profileCustomerApprove": "El perfil de %s ha sido aprobado.",
+		"profileCustomerReject": "El perfil de %s ha sido rechazado",
+		"startBuyNow": "Start Buying Now!",
+		"donationQueries": "Project query from %s",
+		"projectIdea": "Project Idea Request",
+		"thanksforOrdering": "Gracias por ordenar,",
+		"foodDelivered": "¡Gracias por hacer su pedido con %s! Su pedido ha sido entregado.",
+		"orderDeliveredCentral": "Gracias por su pedido. El pedido se ha entregado con éxito.",
+		"orderDelivered": "Pedido entregado con éxito",
+		"orderDeliveredSub": "Su pedido %s ha sido entregado. ¡Gracias por usar %s!",
+		"orderIndexKeyName": "Total del pedido",
+		"itemSubtotal": "Subtotal del artículo",
+		"shippingHandling": "Envío y manipulación",
+		"promotionApplied": "Promoción Aplicada",
+		"tax": "Impuesto",
+		"payBalance": "Saldo de pago",
+		"orderDispatchedCentral": "Gracias por su pedido. El pedido ya está listo para su entrega.",
+		"orderDispatched": "Pedido enviado con éxito",
+		"orderDispatchedSub": "Su pedido %s ha sido enviado. ¡Gracias por usar %s!",
+		"foodOrderAccepted": "¡Gracias por hacer su pedido con %s! Su pedido ha sido aceptado.",
+		"foodOrderAcceptedSub": "Su pedido %s ha sido aceptado. ¡Gracias por usar %s!",
+		"removedByPickerSub": "Producto eliminado por el recolector - Carrito actualizado",
+		"cartUpdated": "Carrito actualizado correctamente",
+		"rejectedByStore": "Producto(s) rechazado(s) por la tienda",
+		"orderCancelled": "¡Pedido cancelado!",
+		"orderSubmitted": "Su pedido se ha enviado correctamente.",
+		"orderConfirmed": "Pedido confirmado con éxito",
+		"orderConfirmedSub": "Su pedido %s ha sido enviado. ¡Gracias por usar %s!",
+		"foodOrdered": "¡Gracias por hacer su pedido con %s! Su pedido ha sido enviado.",
+		"purchaseOrder": "Nueva orden de compra rececived : %s. ¡Gracias por usar %s!",
+		"returnInitiated": "Order return Initiated",
+		"storeCustomerInvitationCreate": "%s has added you as a buyer on %s",
+		"deleteCustomerInvitation": "%s has unlinked your as a buyer on %s"
+	},
+	"rideBookingStatusText": {
+		"1": "Nuevo",
+		"2": "Aceptado",
+		"3": "Solicitud Cancelada",
+		"4": "El Cliente ha cancelado",
+		"5": "Conductor cancelado",
+		"6": "Conductor va en camino",
+		"7": "Conductor ha llegado",
+		"8": "La Carga a iniciado",
+		"9": "Ruta iniciada",
+		"10": "Llegó a la Ubicación de Destino",
+		"11": "Descargado",
+		"12": "Completado",
+		"13": "Reserva expirada"
+	},
+	"deliveryBookingStatusText": {
+		"0": "Pago pendiente",
+		"1": "Nuevo",
+		"2": "Aceptado",
+		"3": "Cancelado",
+		"4": "Empaquetado y listo",
+		"5": "Listo para recoger",
+		"6": "En envío",
+		"7": "Completado",
+		"8": "Elegido",
+		"9": "Confirmación pendiente",
+		"10": "en revisión",
+		"11": "recoger",
+		"12": "Devolución iniciada",
+		"13": "Devolución completada",
+		"14": "Listo para recogida automática",
+		"15": "El cliente llegó",
+		"16": "Rechazado",
+		"17": "Llamada en curso",
+		"18": "Selector asignado"
+	},
+	"driverJobsBookingStatusText": {
+		"0": "Pending Payment",
+		"1": "New",
+		"2": "Accepted",
+		"3": "onTheWayToPickup",
+		"4": "atPickup",
+		"5": "picked",
+		"6": "onTheWayToDrop",
+		"7": "atDrop",
+		"8": "Delivered",
+		"9": "Pending Confirmation",
+		"10": "in-review",
+		"11": "picking",
+		"12": "Return Initiated",
+		"13": "Return Completed",
+		"14": "Ready For Self Pickup",
+		"15": "loadingStarted",
+		"16": "unloadingStarted"
+	},
+	"orderTranslation": {
+		"jobForRide": "Viaje",
+		"jobForDelivery": "Entrega",
+		"jobForTowme": "Towing"
+	},
+	"storeTypeMsg": {
+		"1": "Comida",
+		"2": "Cupermercado",
+		"3": "Moda",
+		"4": "Enviar paquetes",
+		"5": "Lavandería",
+		"6": "Farmacia",
+		"7": "E-Afiliado a comercio electrónico",
+		"8": "Socio de comercio electrónico",
+		"9": "Envío Personalizados",
+		"10": "Meat",
+		"11": "Liquor",
+		"12": "grocery nau",
+		"13": "Cannabis",
+		"23": "Trucker"
+	},
+	"bookingTypeMsg": {
+		"0": "Todos",
+		"1": "LO ANTES POSIBLE",
+		"2": "Programar por hora",
+		"3": "Programar por espacio",
+		"23": "Programado"
+	},
+	"towingServices": {
+		"get": {
+			"description": "Api for Get Towing Services.",
+			"notes": "This API allows user to get ."
+		},
+		"getAll": {
+			"description": "Api for Get All Towing Services.",
+			"notes": "This API allows user to get all Towing Services."
+		},
+		"post": {
+			"description": "Api for Add Towing Services.",
+			"notes": "This API allows user to add Towing Services."
+		},
+		"patch": {
+			"description": "Api for Edit Towing Services.",
+			"notes": "This API allows user to edit Towing Services."
+		},
+		"delete": {
+			"description": "Api for Delete Towing Services.",
+			"notes": "This API allows user to delete Towing Services."
+		},
+		"response": {
+			"404": "Not Found, Refine your Search"
+		},
+		"responseDescription": {
+			"404": "This will occur while requested data not found."
+		}
+	},
+	"commodities": {
+		"get": {
+			"description": "Api para obtener productos básicos",
+			"notes": "Esta API permite al usuario obtener"
+		},
+		"getAll": {
+			"description": "Api para obtener todos los productos básicos",
+			"notes": "Esta API permite al usuario obtener todos los productos básicos"
+		},
+		"post": {
+			"description": "Api para agregar productos básicos",
+			"notes": "Esta API permite al usuario agregar productos básicos"
+		},
+		"patch": {
+			"description": "Api para editar productos básicos",
+			"notes": "Esta API permite al usuario editar productos"
+		},
+		"delete": {
+			"description": "Api para eliminar productos básicos",
+			"notes": "Esta API permite al usuario eliminar productos básicos"
+		},
+		"response": {
+			"404": "No encontrado. Defina mejor su búsqueda"
+		},
+		"responseDescription": {
+			"404": "Esto ocurrirá mientras no se encuentren los datos solicitados"
+		}
+	},
+	"patchBaglabel": {
+		"fields": {
+			"storeOrderId": "ID de pedido de la tienda"
+		},
+		"response": {
+			"200": "Correcto",
+			"404": "Datos no encontrados"
+		},
+		"responseDescription": {
+			"200": "Esto se obtendrá mientras la solicitud se ejecute correctamente.",
+			"404": "Datos no encontrados"
+		},
+		"description": "La API se utiliza para actualizar el recuento de etiqueta de paquete",
+		"notes": "La API se utiliza para actualizar el recuento de etiqueta de paquete"
+	},
+	"sendPackageType": {
+		"get": {
+			"description": "Api para obtener el tipo de paquete de envío.",
+			"notes": "Esta API permite al usuario obtener"
+		},
+		"getAll": {
+			"description": "Api para el tipo de paquete de envío.",
+			"notes": "Esta API permite al usuario obtener todos los tipos de paquete de envío"
+		},
+		"post": {
+			"description": "Api para Agregar tipo de paquete de envío",
+			"notes": "Esta API permite al usuario agregar el tipo de paquete de envío"
+		},
+		"patch": {
+			"description": "Api para editar el tipo de paquete de envío",
+			"notes": "Esta API permite al usuario editar el tipo de paquete de envío"
+		},
+		"delete": {
+			"description": "Api para eliminar el tipo de paquete de envío",
+			"notes": "Esta API permite al usuario eliminar el tipo de paquete de envío"
+		},
+		"response": {
+			"404": "No encontrado. Defina mejor su búsqueda"
+		},
+		"responseDescription": {
+			"404": "Esto ocurrirá mientras no se encuentren los datos solicitados"
+		}
+	},
+	"getStoreCategoryAddress": {
+		"response": {
+			"404": "Categoría no encontrada"
+		},
+		"responseDescription": {
+			"404": "Categoría no encontrada"
+		},
+		"description": "obtener la categoría de la tienda",
+		"notes": "obtener categoría de tienda"
+	},
+	"containerType": {
+		"responseDescription": {
+			"404": "containerType.responseDescription.404"
+		},
+		"response": {
+			"404": "containerType.response.404"
+		},
+		"get": {
+			"description": "obtener el tipo de contenedor",
+			"notes": "obtener el tipo de contenedor"
+		},
+		"getAll": {
+			"description": "obtener todo tipo de contenedor",
+			"notes": "obtener todo tipo de contenedor"
+		},
+		"post": {
+			"description": "Api para Agregar tipo de contenedor de envío",
+			"notes": "Esta API permite al usuario agregar el tipo de contenedor de envío"
+		},
+		"patch": {
+			"description": "Api para editar el tipo de contenedor de envío",
+			"notes": "Esta API permite al usuario editar el tipo de contenedor de envío"
+		},
+		"delete": {
+			"description": "Api para eliminar el tipo de contenedor de envío",
+			"notes": "Esta API permite al usuario eliminar el tipo de contenedor de envío"
+		}
+	},
+	"routes": {
+		"response": {
+			"404": "Rutas"
+		},
+		"responseDescription": {
+			"404": "API de creación de rutas"
+		}
+	},
+	"route": {
+		"get": {
+			"description": "obtener detalles del constructor de rutas por id.",
+			"notes": "obtener detalles del constructor de rutas por id"
+		},
+		"getAll": {
+			"description": "obtener todos los detalles del constructor de rutas.",
+			"notes": "obtener todos los detalles del constructor de rutas"
+		},
+		"post": {
+			"description": "Api para agregar detalles del constructor de rutas",
+			"notes": "Esta API permite al usuario agregar detalles del constructor de rutas"
+		},
+		"patch": {
+			"description": "Api para editar detalles del constructor de rutas",
+			"notes": "Esta API permite al usuario editar los detalles del constructor de rutas"
+		},
+		"delete": {
+			"description": "Api para Eliminar detalles del constructor de rutas",
+			"notes": "Esta API permite al usuario eliminar los detalles del constructor de rutas"
+		}
+	},
+	"idProofTypes": {
+		"response": {
+			"404": "Prueba de Identificación no encontrada"
+		},
+		"responseDescription": {
+			"404": "Prueba de identificación no encontrada"
+		},
+		"get": {
+			"description": "Esta api se usa para obtener prueba de identificación",
+			"notes": "Esta api se usa para obtener prueba de identificación"
+		}
+	},
+	"orderDocument": {
+		"fields": {
+			"packageId": "No. de paquete",
+			"document": "URL de imagen"
+		},
+		"description": "api para actualizar prueba de identificación en el pedido de entrega",
+		"notes": "api para actualizar número de prueba en orden de entrega"
+	},
+	"magentoCustomer": {
+		"post": {
+			"description": "Agregar cliente para la integración de magento",
+			"notes": "Agregar cliente para la integración de magento"
+		},
+		"postCustomerLogin": {
+			"description": "Allows user to get user type Token",
+			"notes": "Allows user to get user type Token"
+		},
+		"patch": {
+			"description": "Actualizar cliente para la integración de magento",
+			"notes": "Actualizar cliente para la integración de magento"
+		},
+		"delete": {
+			"description": "Eliminar cliente para la integración de magento",
+			"notes": "Eliminar cliente para la integración de magento"
+		},
+		"response": {
+			"404": "Cliente no encontrado",
+			"412": "Esta dirección de correo electrónico ya está registrada con nosotros, intente con otra dirección de correo electrónico"
+		},
+		"responseDescription": {
+			"412": "Esta dirección de correo electrónico ya está registrada con nosotros, intente con otra dirección de correo electrónico"
+		}
+	},
+	"importroute": {
+		"post": {
+			"descriptions": "Api para importar rutas",
+			"notes": "Esta api permite crear una nueva importación de rutas"
+		}
+	},
+	"zoneAlert": {
+		"get": {
+			"description": "Obtener detalles de aleta de zona según el No. de zona.",
+			"notes": " Obtener detalles de aleta de zona según el No. de zona."
+		},
+		"response": {
+			"404": "Alerta de zona no encontrada"
+		},
+		"responseDescription": {
+			"404": "Alerta de zona no encontrada"
+		},
+		"getAll": {
+			"description": "Obtener alerta de zona basada en zona.",
+			"notes": " Obtener alerta de zona basada en zona."
+		},
+		"post": {
+			"description": "API para agregar nueva alerta de zona",
+			"notes": "API para agregar nueva alerta de zona."
+		},
+		"patch": {
+			"description": "API para actualizar alerta de zona ",
+			"notes": "API para actualizar alerta de zona."
+		},
+		"delete": {
+			"description": "API para eliminar y cerrar alerta de zona.",
+			"notes": "API para eliminar y cerrar alerta de zona "
+		}
+	},
+	"events": {
+		"get": {
+			"description": "API para obtener eventos basados en No. del evento",
+			"notes": "API para obtener eventos basados en No. del evento "
+		},
+		"response": {
+			"204": "Manager Customer User Not Found.",
+			"205": "Manager Not Found.",
+			"404": "Detalles de evento no encontrados",
+			"405": "Appconfig not set amount for create store event.",
+			"407": "User dont have enough coins so log into the application and purchase coins"
+		},
+		"responseDescription": {
+			"204": "Manager Customer User Not Found.",
+			"205": "Manager Not Found.",
+			"404": "Detalles de evento no encontrados",
+			"405": "Appconfig not set amount for create store event.",
+			"407": "User dont have enough coins so log into the application and purchase coins"
+		},
+		"getAll": {
+			"description": "API para obtener eventos basados en No. de local",
+			"notes": "API para obtener eventos basados en No. de local "
+		},
+		"post": {
+			"description": "Agregar nuevos eventos en Locales",
+			"notes": " Agregar nuevos eventos en Locales "
+		},
+		"patch": {
+			"description": " Actualizar eventos en Locales ",
+			"notes": " Actualizar eventos en Locales "
+		},
+		"patchFav": {
+			"description": " Actualizar eventos en Locales ",
+			"notes": " Actualizar eventos en Locales "
+		},
+		"getFav": {
+			"description": " Actualizar eventos en Locales ",
+			"notes": " Actualizar eventos en Locales "
+		}
+	},
+	"project": {
+		"get": {
+			"description": "API para obtener el Proyecto en función del No. del evento",
+			"notes": "API para obtener el Proyecto en función del No. del evento "
+		},
+		"response": {
+			"404": "Detalles del Proyecto no encontrados"
+		},
+		"getQueries": {
+			"description": "This API will be used to pull all the project queries on the admin panel.",
+			"notes": "This API will be used to pull all the project queries on the admin panel."
+		},
+		"postQueries": {
+			"description": "This API will allow the user to post a query to the project",
+			"notes": "This API will allow the user to post a query to the project"
+		},
+		"responseDescription": {
+			"404": "Detalles del Proyecto no encontrados"
+		},
+		"getAll": {
+			"description": "Api para obtener el Proyecto según el No. del local",
+			"notes": "Api para obtener el Proyecto según el No. del local "
+		},
+		"post": {
+			"description": "Agregar nuevos proyectos en el local",
+			"notes": " Agregar nuevos proyectos en el local "
+		},
+		"patch": {
+			"description": "Actualizar proyectos en Local",
+			"notes": " Actualizar proyectos en Local "
+		},
+		"patchFav": {
+			"description": "make project favorite",
+			"notes": "make project favorite"
+		},
+		"getFav": {
+			"description": "Get favorite project",
+			"notes": "Get favorite project"
+		},
+		"postdonation": {
+			"description": "This API will be used to donate coins to the project.",
+			"notes": "This API will be used to donate coins to the project."
+		},
+		"getdonation": {
+			"description": "this API is used to get the donation logs",
+			"notes": "this API is used to get the donation logs"
+		}
+	},
+	"vehicels": {
+		"post": {
+			"description": "Api to Post New Vehicels",
+			"notes": "Api to Post New Vehicels"
+		},
+		"get": {
+			"description": "Api to get  Vehicels",
+			"notes": "Api to Post get Vehicels"
+		},
+		"patch": {
+			"description": "Api to update  Vehicels",
+			"notes": "Api to Post update Vehicels"
+		},
+		"delete": {
+			"description": "Api to delete  Vehicels",
+			"notes": "Api to Post delete Vehicels"
+		}
+	},
+	"projectJob": {
+		"get": {
+			"description": "API para obtener trabajos del Proyecto según el No. de evento",
+			"notes": "API para obtener trabajos del Proyecto según el No. de evento "
+		},
+		"response": {
+			"403": "Maximum User Is apply for Job.",
+			"404": "Trabajos de proyectos no encontrados"
+		},
+		"responseDescription": {
+			"403": "Maximum User Is apply for Job.",
+			"404": "Trabajos de proyectos no encontrados"
+		},
+		"getAll": {
+			"description": "API para obtener trabajos del Proyecto según el No. de local",
+			"notes": "API para obtener trabajos del Proyecto según el No. de local "
+		},
+		"getApply": {
+			"description": "This api is for getting applications for applied project jobs.",
+			"notes": "This api is for getting applications for applied project jobs."
+		},
+		"post": {
+			"description": "Agregar nuevo trabajo de Proyecto en Local",
+			"notes": " Agregar nuevo trabajo de Proyecto en Local "
+		},
+		"postApply": {
+			"description": "This api is for applying project jobs for user requests.",
+			"notes": "This api is for applying project jobs for user requests."
+		},
+		"patch": {
+			"description": "Actualizar trabajo de Proyecto en local",
+			"notes": " Actualizar trabajo de Proyecto en local "
+		},
+		"delete": {
+			"description": " Eliminar trabajo de Proyecto en local ",
+			"notes": " Eliminar trabajo de Proyecto en local "
+		}
+	},
+	"projectNeed": {
+		"get": {
+			"description": "API para obtener necesidades según el No. evento",
+			"notes": "API para obtener necesidades según el No. evento "
+		},
+		"response": {
+			"403": "Maximum User Is apply for Need.",
+			"404": "Necesidades de Proyecto no encontradas"
+		},
+		"responseDescription": {
+			"403": "Maximum User Is apply for Need.",
+			"404": " Necesidades de Proyecto no encontradas "
+		},
+		"getAll": {
+			"description": "API para obtener necesidades del Proyecto según No. local",
+			"notes": "API para obtener necesidades del Proyecto según No. local "
+		},
+		"post": {
+			"description": "Agregar nuevas necesidades de Proyecto en Local",
+			"notes": " Agregar nuevas necesidades de Proyecto en Local "
+		},
+		"postApply": {
+			"description": "This api is for applying project needs for user requests.",
+			"notes": "This api is for applying project needs for user requests."
+		},
+		"getApply": {
+			"description": "This api is for getting applications for applied project needs.",
+			"notes": "This api is for getting applications for applied project needs."
+		},
+		"patch": {
+			"description": " Actualizar necesidades de Proyecto en Local ",
+			"notes": " Actualizar necesidades de Proyecto en Local "
+		},
+		"delete": {
+			"description": " Eliminar necesidades de Proyecto en Local ",
+			"notes": " Eliminar necesidades de Proyecto en Local "
+		}
+	},
+	"checkIns": {
+		"get": {
+			"description": "Api para comprobar los detalles del usuario para el Local.",
+			"notes": "Api para comprobar los detalles del usuario para el Local."
+		},
+		"response": {
+			"404": "Detalles del usuario no encontrados"
+		},
+		"responseDescription": {
+			"404": "Detalles del usuario no encontrados"
+		},
+		"getAll": {
+			"description": "API para comprobar el Local del usuario.",
+			"notes": "API para comprobar el Local del usuario "
+		},
+		"post": {
+			"description": "API para agregar los detalles del usuario para el Local",
+			"notes": "API para agregar los detalles del usuario para el Local "
+		}
+	},
+	"shiftTimings": {
+		"response": {
+			"404": {
+				"shiftTimings": "Datos de tiempos de cambio no encontrados"
+			}
+		},
+		"get": {
+			"description": "API para obtener los datos de tiempos de cambio según el No. de Local",
+			"notes": "API para obtener los datos de tiempos de cambio según el No. de Local "
+		},
+		"post": {
+			"description": "API para agregar los datos de tiempos de cambio según el No. de Local ",
+			"notes": "API para agregar los datos de tiempos de cambio según el No. de Local "
+		},
+		"delete": {
+			"description": "API para eliminar los datos de tiempos de cambio ",
+			"notes": "API para eliminar los datos de tiempos de cambio "
+		},
+		"getDetails": {
+			"description": "API para obtener los detalles de tiempo de cambio basados en el No. de tiempo de cambio.",
+			"notes": "API para obtener los detalles de tiempo de cambio basados en el No. de tiempo de cambio "
+		}
+	},
+	"shift": {
+		"get": {
+			"description": "API para obtener turno para el Local.",
+			"notes": "API para obtener turno para el Local "
+		},
+		"post": {
+			"description": "API para agregar un nuevo cambio en los horarios de los turnos.",
+			"notes": "API para agregar un nuevo cambio en los horarios de los turnos "
+		},
+		"response": {
+			"404": {
+				"shifts": "Datos de los turnos no encontrado"
+			}
+		},
+		"patch": {
+			"description": "API para actualizar el número máximo de trabajos en turnos.",
+			"notes": "API para actualizar el número máximo de trabajos en turnos "
+		},
+		"delet": {
+			"description": "API para eliminar el turno del Local",
+			"notes": "API para eliminar el turno del Local"
+		}
+	},
+	"managercoins": {
+		"response": {
+			"404": "Manager Data Not Found"
+		},
+		"responseDescription": {
+			"404": "Manager Data Not Found"
+		},
+		"get": {
+			"description": "Api to get storeUser Coin balance.",
+			"notes": "Api to get storeUser Coin balance."
+		}
+	},
+	"walletTransaction": {
+		"cardDeduct": "Deducción de tarjeta por pedido- %s",
+		"cashCollected": "Efectivo cobrado por pedido- %s",
+		"pgEarning": "PG Ganancias por orden- %s",
+		"storeEarning": "Ganancias del establecimiento por orden- %s",
+		"appEarningCart": "App Commission for order: #%s, package: #%s",
+		"vatAppEarningCart": "%s GST on App Commission for order: #%s, package: #%s",
+		"vatDeliveryFeeFromStore": "%s GST on Shipping Charge for order: #%s, package: #%s",
+		"merchantHandlingFeesTotal": "Merchant Handling Fees for order: #%s, package: #%s",
+		"deliveryFeeFromStoreEntry": "Shipping fee paid for order no: %s and package id: %s",
+		"TCSFromStore": "%s TCS for order: #%s, package: #%s",
+		"TDSFromStore": "%s TDS for order: #%s, package: #%s",
+		"deliveryFeeToStoreEntry": "Delivery fee recived for order no: %s and package id: %s",
+		"driverEarning": "Ganancias del Flaiger por orden- %s",
+		"referralEarning": "Acabas de ganar %s %s como comisión de la orden número-****%s hecha por %s",
+		"bonusPoint": "Punto de bonificación usado para el pedido- %s",
+		"refund": "Reembolso por orden- %s",
+		"charge": "Cargo por orden- %s",
+		"cancellation": "Fee de cancelación por orden- %s",
+		"rewardsPointsReturned": "Puntos de recompensa devueltos por cancelación de la orden-****%s",
+		"coinUsed": "COIN usado en evento-****%s",
+		"coinDebit": "COIN debitado en donación-****%s",
+		"coinCredit": "COIN acreditado en donación-****%s",
+		"rewardsPointsUsed": "Puntos de recompensa usados en la orden-****%s",
+		"lastDue": "Último vencido pagado con orden- %s",
+		"order": "Orden",
+		"event": "Evento",
+		"projectDonation": "Proyecto Donación",
+		"returnStoreEarning": "Wallet debit for return order no - %s",
+		"returnAppEarningCart": "Wallet credit for app commission for return order no: #%s, package: #%s",
+		"returnVatAppEarningCart": "Wallet credit %s GST on App Commission for return order: #%s, package: #%s",
+		"returnDeliveryFeeFromStoreEntry": "Wallet debit for shipping fee for return order no: %s and package id: %s"
+	},
+	"paymentTypeText": {
+		"onlinePayment": "Pago en Línea",
+		"cash": "Efectivo",
+		"wallet": "Billetera",
+		"bonusPoint": "Puntos de Bonificación",
+		"card": "Tarjeta"
+	},
+	"customerPaymentTypeMsg": {
+		"cashOnDelivery": "Efectivo en la entrega",
+		"prePaid": "Pre-pagado"
+	},
+	"actCustomerPaymentTypeMsg": {
+		"cashOnDelivery": "Efectivo en la entrega",
+		"prePaid": "Pre-Pagado"
+	},
+	"deliveryFeePaidByText": {
+		"receiver": "Consumidor Final",
+		"sender": "Remitente"
+	},
+	"customerNotification": {
+		"profileApproved": "Nos complace informarle que su perfil ha sido aprobado en %s. Ahora puede comenzar a realizar pedidos.",
+		"profileRejected": "Lamentamos informarte de que tu perfil ha sido rechazado en %s. Por favor, cargue un nuevo conjunto de prueba de identificación.",
+		"productPicked": "Su(s) producto(s) en el número de paquete: %s ha sido recogido.",
+		"productDelivered": "Su(s) producto(s) en el número de paquete: %s ha sido entregado.",
+		"readyForPickup": "Su(s) producto(s) está listo(s) para su recogida.",
+		"readyForDelivery": "Su(s) producto(s) está embalado y listo para su entrega",
+		"pickerAssigned": "Picker has been assigned for order no %s.",
+		"pickingStarted": "El gerente ha comenzado a elegir el pedido sin %s.",
+		"checkingStarted": "Su verificador %s ha comenzado a verificar su pedido.",
+		"productPacked": "Su producto %s está empaquetado.",
+		"orderPacked": "The picker has completed the checkout process and your order is ready for pickup by our delivery partner.",
+		"pickerPicked": "El selector ha elegido %s",
+		"donePicking": "The picker has completed picking your order and is in the process of bagging your order %s.",
+		"pickerPicking": "Su selector %s ha comenzado a recoger su pedido.",
+		"reattemptDelivery": "El paquete %s se vuelve a intentar para la entrega.",
+		"orderAccepted": "La tienda ha aceptado el pedido no %s.",
+		"orderRejected": "La tienda ha rechazado el pedido con razón %s, cualquier dinero pagado será reembolsado.",
+		"productReturn": "Su producto %s es devuelto.",
+		"orderReturn": "Su pedido ha sido devuelto",
+		"orderCreated": "Su pedido %s ha sido enviado. ¡Gracias por usar %s!",
+		"loadCreated": "Your load %s has been submitted. Thank you for using %s!",
+		"orderCreatedShouout": "Ha recibido una solicitud de Shouout",
+		"orderCreatedVideo": "Ha recibido una solicitud de videollamada.",
+		"orderDenied": "Su pedido ha sido rechazado por la tienda con el motivo %s, revise su pedido",
+		"orderCancle": "Hemos tenido que cancelar este pedido debido a una razón y hemos reembolsado el dinero a su método de pago seleccionado."
+	},
+	"customerNotificationTitle": {
+		"profileApproved": "Perfil aprobado",
+		"profileRejected": "Perfil rechazado",
+		"productDispatched": "Producto despachado",
+		"productDelivered": "Producto entregado",
+		"productPacked": "Producto envasado",
+		"orderPacked": "Pedido embalado",
+		"productOrdered": "Producto pedido",
+		"loadCreated": "Load Created",
+		"productPicked": "Producto recogido",
+		"reattemptDelivery": "Volver a intentar la entrega",
+		"orderAccepted": "Pedido aceptado",
+		"orderRejected": "Pedido rechazado",
+		"productReturn": "Devolución de productos",
+		"orderReturn": "Devolución del pedido"
+	},
+	"projectIdea": {
+		"post": {
+			"description": "This api is use to request for new project idea and send email to admin.",
+			"notes": "This api is use to request for new project idea and send email to admin."
+		}
+	},
+	"call": {
+		"response": {
+			"404": "Data Not Found."
+		},
+		"responseDescription": {
+			"404": "Data Not Found."
+		},
+		"post": {
+			"description": "This API will be used to post call",
+			"notes": "This API will be used to post call"
+		},
+		"patch": {
+			"description": "This API will be used to join in call means answering a call",
+			"notes": "This API will be used to join in call means answering a call"
+		},
+		"delete": {
+			"description": "This API will be used to leave from call or reject a call",
+			"notes": "This API will be used to leave from call or reject a call"
+		}
+	},
+	"cancellationReason": {
+		"get": {
+			"description": "Api for Get cancellation Reason.",
+			"notes": "This API allows user to get ."
+		},
+		"getAll": {
+			"description": "Api for Get All cancellation Reason.",
+			"notes": "This API allows user to get all cancellation Reason."
+		},
+		"post": {
+			"description": "Api for Add cancellation Reason.",
+			"notes": "This API allows user to add cancellation Reason."
+		},
+		"patch": {
+			"description": "Api for Edit cancellation Reason.",
+			"notes": "This API allows user to edit cancellation Reason."
+		},
+		"delete": {
+			"description": "Api for Delete cancellation Reason.",
+			"notes": "This API allows user to delete cancellation Reason."
+		},
+		"response": {
+			"404": "Cancellation Reason not found"
+		},
+		"responseDescription": {
+			"404": "Cancellation Reason not found"
+		}
+	},
+	"bodyType": {
+		"get": {
+			"description": "api use for get Body Type",
+			"notes": "api use for get Body Type"
+		},
+		"response": {
+			"404": "body Type not found"
+		},
+		"responseDescription": {
+			"404": "body Type not found"
+		},
+		"getAll": {
+			"description": "Api use to get all the body type",
+			"notes": "Api use to get all the body type"
+		},
+		"post": {
+			"description": "api use for creating a body type",
+			"notes": "api use for creating a body type"
+		},
+		"patch": {
+			"description": "api use for updating body type",
+			"notes": "api use for updating body type"
+		},
+		"delete": {
+			"description": "api use for deleting bodytype",
+			"notes": "api use for deleting body type"
+		}
+	},
+	"contactToBuyerProfile": {
+		"post": {
+			"200": "Contact to a buyer’s profile added Successfuly",
+			"description": "This API is used to add a contact to a buyer’s profile",
+			"notes": "To add a contact to a buyer’s profile"
+		},
+		"patch": {
+			"200": "Contact to a buyer’s profile edited Successfuly",
+			"description": "This API is used to edit a contact to a buyer’s profile",
+			"notes": "To edit a contact to a buyer’s profile"
+		},
+		"get": {
+			"200": "These are the available ContactToBuyerProfile",
+			"description": "This API is used to get all contact to a buyer’s profile",
+			"notes": "To get all contact to a buyer’s profile"
+		},
+		"getById": {
+			"description": "This API is used to get a contact to a buyer’s profile ById",
+			"notes": "To get a contact to a buyer’s profile ById"
+		},
+		"delete": {
+			"200": "contactToBuyerProfile deleted Successfylly.",
+			"description": "This API is used to delete a contact to a buyer’s profile",
+			"notes": "To delete a contact to a buyer’s profile"
+		}
+	},
+	"appBankDetails": {
+		"get": {
+			"response": {
+				"200": "These are the Required Bank Details",
+				"404": "Sorry! No Bank Details found !"
+			},
+			"description": "Api to get app bank informations.",
+			"notes": "This API is used to get app Bank Details."
+		}
+	},
+	"designation": {
+		"post": {
+			"200": "Your contact designation added Successfuly ! ",
+			"description": "This API allows to add contact designation",
+			"notes": "API to add contact designation"
+		},
+		"patch": {
+			"200": "Your contact designation Edited Successfuly !",
+			"404": "Contact Designation Do not Found !",
+			"description": "This API allows to edit contact designation",
+			"notes": "API to edit contact designation"
+		},
+		"get": {
+			"200": "Your contact designation found Successfuly !",
+			"404": "Contact Designations Do not Found !",
+			"description": "This API allows to get all the available contact designation",
+			"notes": "API to get contact designation"
+		},
+		"getById": {
+			"description": "This API allows to get the contact designation by designationId",
+			"notes": "API to get contact designation byId"
+		},
+		"delete": {
+			"200": "Your contact designation Deleted Successfuly !",
+			"404": "Contact Designation Do not Found !",
+			"description": "This API allows to delete contact designation",
+			"notes": "API to get contact designation"
+		}
+	},
+	"subscriptionPlan": {
+		"get": {
+			"description": "Get Driver Plan",
+			"notes": "Get Driver Plan"
+		}
+	},
+	"makeModel": {
+		"get": {
+			"description": "api use for get make model",
+			"notes": "api use for get make model"
+		},
+		"getAll": {
+			"description": " Api use to get all the make model",
+			"notes": "Api use to get all the make model"
+		},
+		"post": {
+			"description": "api use for creating a make model",
+			"notes": "api use for creating a make model"
+		},
+		"patch": {
+			"description": "api use for updating make model",
+			"notes": "api use for updating make model"
+		},
+		"delete": {
+			"description": "api use for deleting make model",
+			"notes": "api use for deleting make model"
+		},
+		"getModel": {
+			"description": "makeModel.getModel.description",
+			"notes": "makeModel.getModel.notes"
+		}
+	},
+	"customerMake": {
+		"get": {
+			"description": "api use for customer Make",
+			"notes": "api use for customer Make"
+		},
+		"getMake": {
+			"description": "api use for customer Make",
+			"notes": "api use for customer Make"
+		}
+	},
+	"customerModel": {
+		"getModel": {
+			"description": "api use for customerModel",
+			"notes": "api use for customerModel"
+		}
+	},
+	"subscriptionPayment": {
+		"fields": {
+			"onlinePaymentMethod": "Payment type used for checkout 1-Stripe Card.",
+			"cardId": "Stripe Card Id."
+		}
+	},
+	"perCustomerCustomBilling": {
+		"post": {
+			"description": "Add Customer Custom Billing ",
+			"notes": "Add Customer Custom Billing "
+		},
+		"get": {
+			"description": "Get Customer Custom Billing ",
+			"notes": "Get Customer Custom Billing "
+		},
+		"patch": {
+			"description": "Edit Customer Custom Billing ",
+			"notes": "Edit Customer Custom Billing "
+		},
+		"response": {
+			"200": "Success",
+			"400": "%s field missing/invalid",
+			"404": "Data not found with your Id",
+			"500": "Internal server error"
+		},
+		"responseDescription": {
+			"200": "This will get while request successfully executed.",
+			"400": "Bad request while some data is missing or invalid.",
+			"404": "This will occur while requested data not found.",
+			"500": "This error occur while internal server error."
+		},
+		"delete": {
+			"200": "Success",
+			"description": "This API Use for Delete Customer Custom Billing Price",
+			"notes": "This API Use for Delete Customer Custom Billing Price"
+		}
+	},
+	"orderPatchReturnStatus": {
+		"description": "Api is use for update status of return order.",
+		"notes": "Api is use for update status of return order."
+	},
+	"returnParameter": {
+		"post": {
+			"200": "Return Parameter added successfuly.",
+			"description": "This api is used to add return parameter.",
+			"notes": "to add return parameter"
+		},
+		"get": {
+			"200": "Return parameter fetched successfuly.",
+			"404": "Return parameter not Found.",
+			"description": "This api is used to get return parameter.",
+			"notes": "to get return parameter"
+		},
+		"getById": {
+			"description": "This api is used to get return parameter ById.",
+			"notes": "to get return parameter ById"
+		},
+		"patch": {
+			"200": "returnParameter edited Scuccessfuly.",
+			"404": "returnParameter not found.",
+			"description": "This api is used to edit return parameter.",
+			"notes": "to edit return parameter."
+		},
+		"delete": {
+			"200": "returnParameter deleted Successfuly.",
+			"404": "returnParameter not found.",
+			"description": "This api is used to delete return parameter.",
+			"notes": "to delete return parameter."
+		},
+		"totolCount": {
+			"200": 12
+		}
+	},
+	"paypalOrder": {
+		"response": {
+			"200": "paypal order generated successfully"
+		},
+		"responseDescription": {
+			"200": "paypal order generated successfully"
+		},
+		"description": "This Api is used to generate a paypal order",
+		"notes": "This Api is used to generate a paypal order"
+	},
+	"saveItForLater": {
+		"response": {
+			"404": "data not found"
+		},
+		"responseDescription": {
+			"404": "data not found"
+		},
+		"post": {
+			"description": "this api is used to move cart product to saveItToLater or saveItToLater to cart",
+			"notes": "this api is used to move cart product to saveItToLater or saveItToLater to cart"
+		},
+		"get": {
+			"response": {
+				"200": "data found successfully",
+				"404": "data not found"
+			},
+			"description": "This api used to get saveItForLater",
+			"notes": "This api used to get saveItForLater"
+		},
+		"delete": {
+			"response": {
+				"200": "data deleted successfully",
+				"404": "data not found"
+			},
+			"description": "This api used to delete saveItForLater",
+			"notes": "This api used to delete saveItForLater"
+		}
+	},
+	"getPickupAddress": {
+		"fields": {
+			"storId": "storeId of the store"
+		},
+		"description": "To get pickupAddress for store.",
+		"notes": "This api is used to get pickupAddress for store. ",
+		"response": {
+			"404": "No addresses found for this store."
+		}
+	},
+	"patchPickupAddress": {
+		"response": {
+			"200": "pickupAddress updated successfully.",
+			"404": "Package does not found."
+		},
+		"description": "To edit pickupAddress for packages in deliveryOrder",
+		"notes": "This api is used to edit pickupAddress for packages in deliveryOrder"
+	},
+	"findJob": {
+		"post": {
+			"description": "for get new booking in loadboard",
+			"notes": "for get new booking in loadboard"
+		}
+	},
+	"estimatedPickup": {
+		"get": {
+			"description": "Api for get estimated days of delivery from route.",
+			"notes": "Api for get estimated days of delivery from route."
+		}
+	},
+	"loadPreferences": {
+		"response": {
+			"404": "Load Preference is Not Found"
+		},
+		"responseDescription": {
+			"404": "Load Preference Not Found"
+		},
+		"get": {
+			"description": "This api used for get Preference by Id",
+			"notes": "This api used for get Preference by Id"
+		},
+		"getAll": {
+			"description": "This api used for get All Preferences",
+			"notes": "This api used for get All Preferences"
+		},
+		"post": {
+			"description": "This api used for add Preferences",
+			"notes": "This api used for add Preferences"
+		},
+		"patch": {
+			"description": "This api used for edit Preferences",
+			"notes": "This api used for edit Preferences"
+		},
+		"delete": {
+			"description": "This api used for delete Preferences",
+			"notes": "This api used for delete Preferences"
+		}
+	},
+	"orderRouteDetails": {
+		"description": "get dcOrder details.",
+		"notes": "This API is used to get dcOrder details from dcOrder ID.",
+		"fields": {
+			"dcOrderId": "dcOrder id for getting details for ex: 44301580712142350.",
+			"productOrderId": "product order Id for getting details for ex: 44301580712142350."
+		},
+		"response": {
+			"200": "Success",
+			"404": "dcOrder not found."
+		},
+		"responseDescription": {
+			"200": "This will get while request successfully executed.",
+			"404": "This error occur when dcOrder is not found in database."
+		},
+		"responseFields": {}
+	},
+	"invoiceGenerator": {
+		"post": {
+			"description": "this api is use for raise credit line invoices",
+			"notes": "this api is use for raise credit line invoices"
+		},
+		"get": {
+			"description": "get all credit line completed bookings",
+			"notes": "get all credit line completed bookings"
+		},
+		"patch": {
+			"description": "this api for update invoice payment details",
+			"notes": "this api for update invoice payment details"
+		}
+	},
+	"respondToRequest": {
+		"post": {
+			"description": "respondToRequest.post.description",
+			"notes": "respondToRequest.post.notes"
+		}
+	},
+	"allOrderPaymentLogs": {
+		"get": {
+			"description": "allOrderPaymentLogs.get.description",
+			"notes": "allOrderPaymentLogs.get.notes"
+		},
+		"patch": {
+			"description": "allOrderPaymentLogs.patch.description",
+			"notes": "allOrderPaymentLogs.patch.notes"
+		}
+	},
+	"orderPatchReturnRequest": {
+		"description": "API for return order",
+		"notes": "-- --",
+		"fields": {
+			"returnType": "return type 1-complete, 2-partial.",
+			"storeOrderId": "store order id for return",
+			"packageId": "package id for return",
+			"productOrderId": "product order id for return in case of partial return",
+			"quantity": "product order id for return in case of partial return",
+			"reason": "reason for returning item",
+			"returnMethod": "return Method 1-Autonomous Return, 2-Collect Return.",
+			"returnMode": "return Mode 1-Courier, 2-Self."
+		},
+		"response": {
+			"200": "Order Return Initiated.",
+			"403": "Product Order Id provided is not associated with package.",
+			"404": "Order not found",
+			"405": "Invalid quantity.",
+			"410": "Can't return, return for product is not allowed."
+		},
+		"responseDescription": {
+			"200": "Success",
+			"403": "Not Allowed",
+			"404": "Not Found",
+			"405": "Not Allowed",
+			"410": "Not Allowed"
+		}
+	},
+	"orderGetReturnRequest": {
+		"response": {
+			"200": "data found successfully"
+		},
+		"responseDescription": {
+			"200": "data found successfully"
+		},
+		"description": "Api for get new return request",
+		"notes": "Api for get new return request"
+	},
+	"orderGetReturnDetails": {
+		"response": {
+			"200": "orderGetReturnDetails.response.200"
+		},
+		"responseDescription": {
+			"200": "orderGetReturnDetails.responseDescription.200"
+		},
+		"description": "orderGetReturnDetails.description",
+		"notes": "orderGetReturnDetails.notes"
+	},
+	"patchReturndeliveryAddress": {
+		"response": {
+			"200": "address updated successfully.",
+			"404": "Package does not found."
+		},
+		"description": "To edit deliveryAddress for packages in Return Order",
+		"notes": "This api is used to edit deliveryAddress for return packages in Return Order"
+	},
+	"orderPatchReturnPass": {
+		"description": "This api is only use for dc order to pass return order QC",
+		"notes": "This api is only use for dc order to pass return order QC"
+	},
+	"orderPatchReturnReject": {
+		"description": "Api for reject retun order.",
+		"notes": "Api for reject retun order."
+	},
+	"unAssignOrderUpdate": {
+		"description": "This Api is used to assign Booking from driver",
+		"notes": "This Api is used to assign Booking from driver"
+	},
+	"specialOccasion": {
+		"post": {
+			"200": "Occasion Created successfully.",
+			"description": "This Api is used to Create new Occasion",
+			"notes": "To create new Occasion"
+		},
+		"payload": {
+			"name": "Occasion name",
+			"occasionId": "Occasion _id",
+			"skip": "skip",
+			"limit": "limit",
+			"search": "Search by Occasion Name"
+		},
+		"patch": {
+			"200": "Occasion updated successfully.",
+			"404": "Occasion not found.",
+			"description": "This Api is used to update existing Occasion",
+			"notes": "To update Occasion."
+		},
+		"delete": {
+			"200": "Occasion deleted successfully.",
+			"description": "This Api is used to delete existing Occasion",
+			"notes": "to delete existing Occasion"
+		},
+		"get": {
+			"200": "Occasion fetched successfully.",
+			"description": "This api is used to get all Occasions.",
+			"notes": "To get all Occasions."
+		},
+		"getDetails": {
+			"description": "This api ise used to get Occasion Details.",
+			"notes": "To get Occasion Details."
+		}
+	},
+	"restaurantSection": {
+		"payload": {
+			"appId": "appId",
+			"projectId": "projectId",
+			"storeId": "storeId",
+			"sectionName": "Section Name",
+			"locatedIndoors": "Located Indoors",
+			"smokingAllowed": "Smoking Allowed",
+			"kidsAllowed": "Kids Allowed",
+			"atBar": "at Bar",
+			"alcoholServed": "Alcohol Served ",
+			"media": "media",
+			"url": "Restaurant Url",
+			"type": "type of media Image/Video",
+			"restaurantSectionId": "restaruant section id",
+			"restaurantTableSetupId": "restaurantSection.payload.restaurantTableSetupId",
+			"search": "search by restaurant section name"
+		},
+		"post": {
+			"200": "Restaurant Section created successfully.",
+			"description": "This api is used to create restaurant sections",
+			"notes": "To create restaurant sections"
+		},
+		"payloadExample": {
+			"appId": "0",
+			"projectId": "0",
+			"storeId": "5f92d9d8013796162f1d8cb1",
+			"sectionName": "Middle Section",
+			"type": "image",
+			"url": "http://www.dummyurl.com",
+			"restaurantSectionId": "63d37efbfcf9e962bcc17524",
+			"restaurantTableSetupId": "restaurantSection.payloadExample.restaurantTableSetupId"
+		},
+		"patch": {
+			"200": "Restaurant Section updated successfully.",
+			"404": "Restaurant Section not found.",
+			"description": "This api is used to update restaurant sections",
+			"notes": "To update restaurant sections"
+		},
+		"get": {
+			"200": "Restaurant Section fetched successfully.",
+			"404": "Restaurant Section not found.",
+			"description": "This api is used to get all Restaurant sections.",
+			"notes": "To get all Restaurant sections."
+		},
+		"query": {
+			"skip": "skip",
+			"limit": "limit",
+			"dataCount": "dataCount"
+		},
+		"getById": {
+			"description": "This api is used to get Restaruant Sections details.",
+			"notes": "To get Restaruant Sections details"
+		},
+		"delete": {
+			"200": "Restaruant Section deleted successfully.",
+			"description": "This api is used to delete restaurant section.",
+			"notes": "To delete restaurant section."
+		}
+	},
+	"restaurantTableSetup": {
+		"payload": {
+			"storeId": "storeId",
+			"sectionId": "sectionId",
+			"tableNumber": "tableNumber",
+			"partySize": "partySize",
+			"restaurantTableSetupId": "restaurantTableSetupId"
+		},
+		"payloadExample": {
+			"storeId": "5f92d9d8013796162f1d8cb1",
+			"sectionId": "5f92d9d8013796162f1d8cb1",
+			"restaurantTableSetupId": "63db32dc31e2e13754cffad8"
+		},
+		"post": {
+			"200": "Restaruant table setup inserted successfully.",
+			"405": "A table with the same number already exists , please choose a different table number and try again!",
+			"description": "This api is used to insert restaurantTableSetup.",
+			"notes": "To insert restaurantTableSetup."
+		},
+		"patch": {
+			"200": "Restaruant table setup updated successfully.",
+			"404": "Restaurant table setup not found.",
+			"description": "This api is used to update restaurantTableSetup.",
+			"notes": "To update restaurantTableSetup."
+		},
+		"query": {
+			"skip": "skip",
+			"limit": "limit"
+		},
+		"get": {
+			"200": "Restaruant table setup fetched successfully.",
+			"description": "This api is used to get all restaurantTableSetup.",
+			"notes": "To get all restaurantTableSetup."
+		},
+		"getById": {
+			"description": "This api is used to get details of restaurantTableSetup.",
+			"notes": "To get details of restaurantTableSetup."
+		},
+		"delete": {
+			"200": "Restaruant table setup deleted successfully.",
+			"description": "This api is used to delete restaurantTableSetup.",
+			"notes": "To delete restaurantTableSetup."
+		},
+		"getQrcode": {
+			"description": "restaurantTableSetup.getQrcode.description",
+			"notes": "restaurantTableSetup.getQrcode.notes"
+		}
+	},
+	"addressType": {
+		"getAll": {
+			"200": "Your Address Type found Successfuly !",
+			"404": "Address Type Do not Found !",
+			"description": "This API allows to get all the available Address Type",
+			"notes": "API to get Address Type"
+		},
+		"post": {
+			"200": "Your address Type added Successfuly ! ",
+			"description": "This API allows to add Address Types",
+			"notes": "API to add Address Types"
+		},
+		"patch": {
+			"200": "Your Address Type Edited Successfuly !",
+			"404": "Address Type Do not Found !",
+			"description": "This API allows to edit Address Type",
+			"notes": "API to edit Address Type"
+		},
+		"delete": {
+			"200": "Your Address Type Deleted Successfuly !",
+			"404": "Address Type Do not Found !",
+			"description": "This API allows to delete Address Type",
+			"notes": "API to get Address Type"
+		},
+		"get": {
+			"description": "This API allows to get the Address Type by addressTypeId",
+			"notes": "API to get Address Type byId"
+		},
+		"response": {
+			"404": "addressType.response.404"
+		},
+		"responseDescription": {
+			"404": "addressType.responseDescription.404"
+		}
+	},
+	"couplerTypes": {
+		"getAll": {
+			"200": "Your Coupler Types found Successfuly !",
+			"404": "Coupler Types Do not Found !",
+			"description": "This API allows to get all the available Coupler Types",
+			"notes": "API to get Coupler Types"
+		},
+		"post": {
+			"200": "Your Coupler Types added Successfuly ! ",
+			"description": "This API allows to add Coupler Types",
+			"notes": "API to add Coupler Types"
+		},
+		"patch": {
+			"200": "Your Coupler Types Edited Successfuly !",
+			"404": "Coupler Types Do not Found !",
+			"description": "This API allows to edit Coupler Types",
+			"notes": "API to edit Coupler Types"
+		},
+		"delete": {
+			"200": "Your Coupler Types Deleted Successfuly !",
+			"404": "Coupler Types Do not Found !",
+			"description": "This API allows to delete Coupler Types",
+			"notes": "API to get Coupler Types"
+		},
+		"get": {
+			"description": "This API allows to get the Coupler Types by addressTypeId",
+			"notes": "API to get Coupler Types byId"
+		}
+	},
+	"deleteProfile": {
+		"200": "Profile deleted successfully.",
+		"404": "data not found"
+	},
+	"customerTiers": {
+		"payload": {
+			"tierName": "customerTier Name",
+			"storeId": "storeId",
+			"customerTierId": "customerTierId"
+		},
+		"payloadExample": {
+			"tierName": "customerTier Name",
+			"storeId": "5f5071597523ca1816e19e55",
+			"customerTierId": "5f5071597523ca1816e19e55"
+		},
+		"post": {
+			"200": "customerTiers inserted successfully.",
+			"description": "This api is used to insert customerTiers.",
+			"notes": "To insert customerTiers"
+		},
+		"patch": {
+			"200": "customerTiers updated successfully.",
+			"404": "customerTiers not found.",
+			"description": "This api is used to update customerTiers.",
+			"notes": "To update customerTiers."
+		},
+		"get": {
+			"200": "customerTier fetched successfully.",
+			"description": "This api is used to fetch all customerTier",
+			"notes": "To fetch all customerTier"
+		},
+		"getById": {
+			"description": "This api is used to get Details of customerTier.",
+			"notes": "To get Details of customerTier."
+		},
+		"query": {
+			"skip": "skip",
+			"limit": "limit",
+			"customerTiersId": "customerTiersId",
+			"deleteType": "1-delete 2-permanent delete",
+			"search": " search by tierName ",
+			"dataCount": "dataCount",
+			"status": "1-Active 2-Deleted"
+		},
+		"delete": {
+			"200": "customerTier deleted successfully.",
+			"description": "This api is used to delete customerTier.",
+			"notes": "To delete customerTier."
+		}
+	},
+	"customerInvitation": {
+		"payload": {
+			"storeId": "storeId",
+			"businessName": "businessName",
+			"contactPersonName": "contactPersonName",
+			"email": "email",
+			"phone": "phone",
+			"countryCode": "countryCode",
+			"customerInvitationId": "customerInvitationId",
+			"search": "customerInvitation.payload.search"
+		},
+		"payloadExample": {
+			"storeId": "5f92d9d8013796162f1d8cb1",
+			"businessName": "Online Marketing",
+			"contactPersonName": "Somesh",
+			"email": "somesh@gmail.com",
+			"phone": "8765412347",
+			"countryCode": "+91",
+			"customerInvitationId": "5f92d9d8013796162f1d8cb4"
+		},
+		"post": {
+			"200": "customerInvitation sent successfully.",
+			"description": "This api is used to send invite to customers to connect with the store on the platform.",
+			"notes": "To send invite to customers to connect with the store on the platform."
+		},
+		"patch": {
+			"200": "customerInvitation updated successfully.",
+			"404": "customerInvitation not found.",
+			"description": "This api ise used to update details of the customer , invite will be sent again if the email or phone number is updated and a new invitation code will be generated.",
+			"notes": "To update details of the customer , invite will be sent again if the email or phone number is updated and a new invitation code will be generated.",
+			"customerInvitationId": "customerInvitationId"
+		},
+		"get": {
+			"200": "customerInvitation fetched successfully.",
+			"description": "This api is used to get the list of the customers by status, who have been invited by the seller along with their invitation.",
+			"notes": "to get the list of the customers by status, who have been invited by the seller along with their invitation."
+		},
+		"query": {
+			"skip": "skip",
+			"limit": "limit",
+			"status": "1-Not Joined  2-Joined 3-Invitation Deleted",
+			"dataCount": "dataCount",
+			"deleteType": "1- Cancel Invitation 2-Permanent Delete",
+			"customerInvitationId": "customerInvitationId",
+			"reason": "reason for cancel invitation",
+			"search": "search by businessName, contactPersonName, email or phone"
+		},
+		"getById": {
+			"description": "This api is used to get customerInvitation Details.",
+			"notes": "To get customerInvitation Details."
+		},
+		"delete": {
+			"200": "customerInvitation cancelled successfully.",
+			"description": "This api is used when the store decides to cancel the invitation.",
+			"notes": "customerInvitation.delete.notes"
+		}
+	},
+	"customerPricingTier": {
+		"patch": {
+			"200": "customer’s pricing tier updated successfully.",
+			"description": "This api is used to update the customer’s pricing tier.",
+			"notes": "To update the customer’s pricing tier."
+		}
+	},
+	"tableReservationSlots": {
+		"query": {
+			"storeId": "Storeid for which store you want to get slot.",
+			"slotDate": "Slot Date in YYYY-MM-DD format",
+			"sectionId": "table section id for which table reservation for validate customer that section table is availbale for that slot or not while create table reservation from customer app.",
+			"partySize": "Party Size for table reservation if section Id passed for customer app."
+		},
+		"queryExample": {
+			"storeId": "5ef9db38f4de272136412767",
+			"slotDate": "2023-02-14",
+			"sectionId": "5f92d9d8013796162f1d8cb1",
+			"partySize": 4
+		},
+		"get": {
+			"200": "Success reponse when status updated successful.",
+			"description": "This API is used to return the available slots to book a table. This factors in the turn around ratio for a seat in a section.",
+			"notes": "This API is used to return the available slots to book a table. This factors in the turn around ratio for a seat in a section."
+		},
+		"store": {
+			"404": "Store data not found."
+		}
+	},
+	"tableReservation": {
+		"404": {
+			"store": "Store data not found.",
+			"ocassion": "Ocassion data not found.",
+			"tableSection": "TableSection data not found.",
+			"reservations": "Table Reservation Data Not Found"
+		},
+		"405": {
+			"tableBooked": "Table is already assigned to customer. please select another table."
+		},
+		"post": {
+			"payload": {
+				"storeId": "StoreId for which store table reservation",
+				"contactUserId": "contactUserId if contact alreay exists.",
+				"bookingDate": "Booking date for table reservation YYYY-MM-DD",
+				"bookingTime": "Booking Time for table reservation HH:mm:ss",
+				"partySize": "Party Size for table reservation.",
+				"sectionId": "table section id for which table reservation",
+				"specialOccasionId": "specialOccasion id for table reservation",
+				"additionalNotes": "additional Notes for table reservation.",
+				"paymentType": "Payment type used for checkout 0-Not Confirmed 1-Online Payment, 2-Cash 3-Credit line.",
+				"onlinePaymentMethod": "Payment type used for checkout 0-Cash, 1-Stripe Card, 2-RazorPay, 3-CashFree, 4-In-APP Purchase, 5-Stripe Ideal Payment, 6-Open Pay, 7-Kushki Payment, 8-Kushki New Payment Flow.., 9-Paypal Version 2, 10-Ath-movil Payment, 11-Pay later, 12-Bank Transfer, 13-Checkout payment gateway, 14-Checkout payment gateway google/applepay, 15-Rakbank Payment Gateway",
+				"payByWallet": "paying by wallet or not",
+				"payByRewardWallet": "paying by reward wallet or not",
+				"cardId": "Card Id if payment type is 1.",
+				"firstName": "First Name",
+				"lastName": "Last Name",
+				"email": "Email",
+				"countryCode": "CountryCode",
+				"mobile": "9737972524",
+				"walkIn": false,
+				"onlineBookingOnApp": false,
+				"onlineBookingOnWebsite": false,
+				"smokingSectionRequested": "SmokingSection Requested",
+				"reservationType": "Table Reservation Type 1: confirmed  and 2: waitlisted",
+				"tableNumber": "tableNumber",
+				"tableReservationID": "Table Reservation ID Ex: TRID-0000000010"
+			},
+			"payloadExample": {
+				"storeId": "5ef9db38f4de272136412767",
+				"userId": "6304a63a5cc523479e083ad1",
+				"bookingDate": "2023-02-14",
+				"bookingTime": "09:00:00",
+				"partySize": 4,
+				"sectionId": "63eb46fe57216676c089ab02",
+				"specialOccasionId": "63e22fd14be23c4b78350d23",
+				"additionalNotes": "additional Notes for table reservation.",
+				"paymentType": 1,
+				"onlinePaymentMethod": 1,
+				"payByWallet": false,
+				"payByRewardWallet": false,
+				"cardId": "pm_1GVFKC2876tVKl2M6vxRSz55",
+				"firstName": "Rinkesh",
+				"lastName": "Kalathiya",
+				"email": "rinkesh@appscrip.co",
+				"countryCode": "+91",
+				"mobile": "9737972524",
+				"walkIn": "tableReservation.post.payloadExample.walkIn",
+				"onlineBookingOnApp": "tableReservation.post.payloadExample.onlineBookingOnApp",
+				"onlineBookingOnWebsite": "tableReservation.post.payloadExample.onlineBookingOnWebsite",
+				"contactUserId": "5ef9db38f4de272136412767",
+				"smokingSectionRequested": false,
+				"reservationType": 1,
+				"tableNumber": 0,
+				"tableReservationID": "TRID-0000000010"
+			},
+			"description": "This API is used to reserve a table.",
+			"notes": "A confirmation email and message is sent to the user. A reservation can be made by the customer from the app or can also be made by the store manager from their app."
+		},
+		"get": {
+			"query": {
+				"storeId": "StoreId for which store table reservation",
+				"reservationTime": "From date - to date(timestamp seprated by -) eg.(1578313576-1578313576)",
+				"status": "Status Filter 0: All, 1: reservation confirmed, 2: waitlisted, 3: confirmed & table assigned, 4: canceled, 5: completed and table cleared, 45: Cancle and Compelted",
+				"partySize": "Party Size for table reservation for filter to show data based on that.",
+				"sectionId": "table section id for which table reservation",
+				"specialOccasionId": "specialOccasion id for table reservation",
+				"customerType": "Customer Type 0: All, 1: New, 2: Repeat",
+				"search": "Search option by customer name, phone, email and store name",
+				"skip": "number of record skip for pagignation",
+				"limit": "limit for show number of record per page",
+				"tableReservationID": "Table Reservation ID Ex: TRID-0000000010",
+				"reason": "Reason for cancle table reservation"
+			},
+			"queryExample": {
+				"storeId": "5ef9db38f4de272136412767",
+				"reservationTime": "1578313576-1578313576",
+				"status": 0,
+				"partySize": 0,
+				"sectionId": "63eb46fe57216676c089ab02",
+				"specialOccasionId": "63e22fd14be23c4b78350d23",
+				"customerType": 0,
+				"search": "rinkesh@appscrip.co",
+				"skip": 0,
+				"limit": 20,
+				"tableReservationID": "TRID-0000000010",
+				"reason": "Not Interested."
+			},
+			"description": "This API is used to get the table reservations for all restaurants or for a restaurant",
+			"notes": "This is called on the store app and also on the super admin. API can return reservations for a particular date , for a particular section , for all restaurants sorted by recent first or for a date range on the super admin. API will return the details of the customer. API will also return if the table was booked as a walk in or booked online"
+		},
+		"getCount": {
+			"description": "This API is used to get order count for  the table reservations for all restaurants or for a restaurant",
+			"notes": "This API is used to get order count for  the table reservations for all restaurants or for a restaurant"
+		},
+		"getDetails": {
+			"description": "This API is used to get details of table reservation.",
+			"notes": "This API is used to get details of table reservation."
+		},
+		"deleteReservation": {
+			"description": "This API is used to delete a table reservation by a customer or by the store manager",
+			"notes": "This also frees up the tables for that time slot based on party size booked. So X tables will get free again , where X is the party size booked. A table reservation can be canceled even after a table is assigned in case the customer did not show up."
+		},
+		"patch": {
+			"description": "This API is used to change the date and time of a reservation by a customer, the message is sent to the user",
+			"notes": "This API is used to change the date and time of a reservation by a customer, the message is sent to the user"
+		},
+		"patchAssignTable": {
+			"description": "this API is used to link a table number with a particular reservation or a waitlist",
+			"notes": "this API is used to link a table number with a particular reservation or a waitlist"
+		},
+		"patchCompleteTable": {
+			"description": "this API is used to complete a reservation and release table",
+			"notes": "this API is used to complete a reservation and release table"
+		}
+	},
+	"enterpriseToSeller": {
+		"invitationCode": {
+			"payload": {
+				"inviteCode": "Invitation Code which is shared on email : 7RCU04"
+			},
+			"payloadExample": {
+				"inviteCode": "7RCU04"
+			},
+			"description": "this API will validate if the code has not been consumed yet and is also valid and created by a store",
+			"notes": "this API will validate if the code has not been consumed yet and is also valid and created by a store",
+			"response": {
+				"404": "This invitation code is not valid.",
+				"405": "This invitation code has already been used."
+			}
+		},
+		"post": {
+			"payload": {
+				"inviteCode": "Invitation Code which is shared on email : 7RCU04"
+			},
+			"payloadExample": {
+				"inviteCode": "7RCU04"
+			},
+			"description": "this API is called to link the enterprise account with the seller",
+			"notes": "An entry will be made on the enterprise database under the linked seller object. Once an invitation code is used it cannot be used again so this needs to be validated on the api.",
+			"response": {
+				"404": "This invitation code is not valid.",
+				"405": "This invitation code has already been used."
+			}
+		},
+		"delete": {
+			"description": "this API is called in case the enterprise account wishes to delete the link between the enterprise account and the seller.",
+			"notes": "this API is called in case the enterprise account wishes to delete the link between the enterprise account and the seller."
+		},
+		"linkedSellers": {
+			"description": "This API will return the list of sellers this customer account is linked with",
+			"notes": "This API will return the list of sellers this customer account is linked with",
+			"query": {
+				"userId": "Enterprice Account User Id"
+			},
+			"queryExample": {
+				"userId": "61dc1bd0c2340a2a36b29e20"
+			},
+			"response": {
+				"404": "Link Seller Data Not Found"
+			}
+		}
+	}
+}
