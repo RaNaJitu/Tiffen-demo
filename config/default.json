@@ -1,6 +1,1 @@
-{
-  "jwtPrivateKey": "unsecureKey",
-  "appUrl": "localhost:3000",
-  "test": false,
-  "requiresAuth": true
-}
+{}
