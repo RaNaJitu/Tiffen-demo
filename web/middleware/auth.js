@@ -2,7 +2,7 @@
 // const Promise = require('bluebird');
 const joi = require('@hapi/joi')
 const convert = require('joi-to-json-schema')
-const rp = require('request-promise')
+// const rp = require('request-promise')
 const config = require('config')
 const jwt = require('jsonwebtoken')
 
