@@ -17,7 +17,7 @@
     "@hapi/glue": "^6.1.0",
     "@hapi/good": "^8.2.0",
     "@hapi/good-console": "^8.1.0",
-    "@hapi/hapi": "^21.3.0",
+    "@hapi/hapi": "^21.1.0",
     "@hapi/inert": "^7.1.0",
     "@hapi/joi": "^17.1.1",
     "@hapi/vision": "^7.0.1",
