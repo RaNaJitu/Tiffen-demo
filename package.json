@@ -14,9 +14,6 @@
   "author": "Jitendra",
   "license": "ISC",
   "dependencies": {
-    "@google-cloud/pubsub": "^2.8.0",
-    "@google-cloud/storage": "^5.8.2",
-    "@grpc/proto-loader": "^0.5.2",
     "@hapi/glue": "^6.1.0",
     "@hapi/good": "^8.2.0",
     "@hapi/good-console": "^8.1.0",
@@ -24,7 +21,6 @@
     "@hapi/inert": "^7.1.0",
     "@hapi/joi": "^17.1.1",
     "@hapi/vision": "^7.0.1",
-    "@woocommerce/woocommerce-rest-api": "^1.0.1",
     "agora-access-token": "^2.0.4",
     "amqplib": "^0.5.5",
     "bcrypt": "^5.1.0",
