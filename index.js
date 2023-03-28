@@ -1,5 +1,3 @@
-// require('newrelic')
-// load .env in local development
 require('dotenv').config({ path: './.env' })
 
 const semver = require('semver')
