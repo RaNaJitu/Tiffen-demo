@@ -41,11 +41,11 @@ const headerAuthenticator = Joi.object({
     .required()
     .default('en')
     .description(i18n.__('common.fields.language')),
-  platform: Joi.number()
-    .valid([1, 2, 3])
-    .required()
-    .default(2)
-    .description(i18n.__('common.fields.platform'))
+  // platform: Joi.number()
+  //   .valid([1, 2, 3])
+  //   .required()
+  //   .default(2)
+  //   .description(i18n.__('common.fields.platform'))
 }).unknown()
 
 const languageAuthenticator = Joi.object({
